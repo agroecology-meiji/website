@@ -155,13 +155,3 @@ main.container{padding:28px 0 56px}
     padding: 50px 16px;
   }
 }
-
-/* Logo styling */
-
-.hero__logo {
-  width: clamp(260px, 45vw, 700px);
-  height: auto;
-  display: block;
-  margin-bottom: 30px;
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
-}
