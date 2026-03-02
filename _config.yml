@@ -1,0 +1,13 @@
+title: "Agroecology Lab"
+description: "Research lab website."
+lang: ja
+timezone: Asia/Tokyo
+baseurl: "/lab_website"
+permalink: /news/:year/:month/:day/:title/
+markdown: kramdown
+plugins: []
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
