@@ -1,4 +1,5 @@
 (() => {
+  // Mobile nav
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
   if (toggle && nav) {
@@ -8,6 +9,7 @@
     });
   }
 
+  // Email obfuscation
   document.querySelectorAll('.js-email').forEach((el) => {
     const user = el.getAttribute('data-user') || '';
     const domain = el.getAttribute('data-domain') || '';
@@ -18,4 +20,8 @@
     a.textContent = addr;
     el.appendChild(a);
   });
+
+  // Footer year
+  const y = document.getElementById('y');
+  if (y) y.textContent = new Date().getFullYear();
 })();
