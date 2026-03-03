@@ -35,11 +35,8 @@ main.container{padding:80px 0 56px}
   border:1px solid var(--border);
   border-radius:18px;
 
-  /* ↓ News の枠（container）と幅を揃える */
-  width:min(var(--maxw), calc(100% - 32px));
-  margin: 0 auto 60px auto;   /* ← hero と Latest News の間隔（下余白） */
-
   min-height:240px;
+  margin-bottom:60px;   /* 下余白だけ残す */
 }
 
 .hero__img{
