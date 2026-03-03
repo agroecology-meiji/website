@@ -237,7 +237,7 @@ main.container{padding:80px 0 56px}
 /* grid の中のカード間隔を gap で作る（これが正解） */
 .grid{
   display: grid;
-  gap: 0;        /* ← 統一間隔 */
+  gap: 14px;        /* ← 統一間隔 */
 }
 
 /* 2列・3列の指定（既にある場合は上書きされませんが、無ければ効く） */
