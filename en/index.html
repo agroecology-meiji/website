@@ -1,92 +1,111 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agroecology Lab</title>
-  <meta name="description" content="Research lab website." />
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
+
 <body>
-
+  <!-- Header (same layout as JP) -->
   <header class="site-header">
-    <div class="container header__row">
+    <div class="container header-inner">
       <a class="brand" href="./">
-        <span class="brand__logo" aria-hidden="true"></span>
-        <span class="brand__text">
-          <span class="brand__univ">University Name</span>
-          <span class="brand__lab">Agroecology Lab</span>
-        </span>
+        <!-- ロゴ画像があるなら差し替え -->
+        <!-- <img src="../assets/img/labname.png" alt="Agroecology Lab" class="brand-logo"> -->
+        <span class="brand-text">Agroecology Lab</span>
       </a>
-      <div style="display:flex;gap:10px;align-items:center;">
-        <a class="btn btn--ghost" href="./en/">English</a>
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
+      <div class="header-actions">
+        <!-- 右上：Japanese → 日本語トップへ -->
+        <a class="btn-secondary" href="../">Japanese</a>
       </div>
     </div>
-
-    <nav class="site-nav" aria-label="Primary navigation">
-      <div class="container">
-        <ul class="nav-list">
-          <li><a href="./" class="active">Home</a></li>
-          <li><a href="./researches/">Researches</a></li>
-          <li><a href="./members/">Members</a></li>
-          <li><a href="./news/">News</a></li>
-          <li><a href="./publications/">Publications</a></li>
-          <li><a href="./contact/">Contact</a></li>
-          <li><a href="./gallery/">Gallery</a></li>
-        </ul>
-      </div>
-    </nav>
   </header>
-<main class="container">
 
-  <section class="hero">
-    <div class="hero__img" style="background-image:url('./assets/img/hero.jpg');"></div>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <h1 class="hero__title">キャッチコピー</h1>
-      <p class="hero__lead">
-         研究概要
-      </p>
-    </div>
-   </section>
+  <main class="container">
 
-  <section>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px;">
-      <h2 class="section-title" style="margin:0;">Latest News</h2>
-      <a href="./news/">See all →</a>
-    </div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__img" style="background-image:url('../assets/img/hero.jpg');"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <h1 class="hero__title">Catchphrase</h1>
+        <p class="hero__lead">
+          Short description of the lab’s focus and strengths for a general audience.
+        </p>
+      </div>
+    </section>
 
-    <div class="grid">
-      <div class="card">
-        <p class="muted" style="margin:0;">〇〇学会で発表しました。</p>
-        <div class="muted">2026-03-02</div>
+    <!-- Latest News -->
+    <section class="section">
+      <div class="section__title">
+        <h2 class="section-title">Latest News</h2>
+        <a class="btn-primary" href="../news/">See all →</a>
       </div>
 
-      <div class="card">
-        <p class="muted" style="margin:0;">論文が Journal of XXXX に掲載されました。</p>
-        <div class="muted">2026-02-15</div>
+      <div class="grid">
+        <section class="card">
+          <div class="tag">2026</div>
+          <h3 style="margin:10px 0 6px;">Conference presentation</h3>
+          <p class="muted" style="margin:0;">Add a short summary here.</p>
+        </section>
+
+        <section class="card">
+          <div class="tag">2026</div>
+          <h3 style="margin:10px 0 6px;">Paper published</h3>
+          <p class="muted" style="margin:0;">Add a short summary here.</p>
+        </section>
+
+        <section class="card">
+          <div class="tag">2025</div>
+          <h3 style="margin:10px 0 6px;">Award</h3>
+          <p class="muted" style="margin:0;">Add a short summary here.</p>
+        </section>
+      </div>
+    </section>
+
+    <!-- Researches -->
+    <section class="section">
+      <div class="section__title">
+        <h2 class="section-title">Researches</h2>
+        <a class="btn-primary" href="../researches/">See details →</a>
       </div>
 
-      <div class="card">
-        <p class="muted" style="margin:0;">学生が〇〇賞を受賞しました。</p>
-        <div class="muted">2026-01-20</div>
-      </div>
-    </div>
-  </section>
+      <div class="grid grid-2">
+        <section class="card">
+          <div class="tag">Soil</div>
+          <h3 style="margin:10px 0 6px;">Soil–Microbe Interactions</h3>
+          <p class="muted" style="margin:0;">Short description.</p>
+        </section>
 
-</main>
+        <section class="card">
+          <div class="tag">Mycorrhiza</div>
+          <h3 style="margin:10px 0 6px;">Mycorrhiza & Stress Tolerance</h3>
+          <p class="muted" style="margin:0;">Short description.</p>
+        </section>
+
+        <section class="card">
+          <div class="tag">Agroecology</div>
+          <h3 style="margin:10px 0 6px;">Resilience in Agroecosystems</h3>
+          <p class="muted" style="margin:0;">Short description.</p>
+        </section>
+
+        <section class="card">
+          <div class="tag">Data-driven</div>
+          <h3 style="margin:10px 0 6px;">Data-driven Diagnostics</h3>
+          <p class="muted" style="margin:0;">Short description.</p>
+        </section>
+      </div>
+    </section>
+
+  </main>
 
   <footer class="site-footer">
-    <div class="container footer__row">
-      <div class="muted">© <span id="y"></span> Agroecology Lab</div>
-      <div class="muted">
-        Contact: 
-        <span class="js-email" data-user="**" data-domain="**" data-tld="ac.jp"></span>
-      </div>
+    <div class="container">
+      <p class="muted" style="margin:0;">© Agroecology Lab</p>
     </div>
   </footer>
-
-  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>
