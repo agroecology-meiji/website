@@ -271,3 +271,26 @@ main.container{padding:80px 0 56px}
 .section-title::after{
   margin-bottom: 22px !important;
 }
+
+/* ===== FINAL spacing patch (put at very bottom) ===== */
+
+/* section-title 下のバー＋下余白を確実に作る */
+.section-title::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:6px;
+  background: var(--accent);
+  margin:10px 0 24px 0 !important; /* ←バーの下を24px空ける */
+  border-radius:999px;
+}
+
+/* 見出しの直後の grid を確実に下げる（Researches/Members用） */
+.section-title + .grid{
+  margin-top: 18px !important;
+}
+
+/* もし grid の上余白が別ルールで潰されていた場合の保険 */
+.grid{
+  margin-top: 0; /* 既存の変な上書きをリセット */
+}
