@@ -168,7 +168,8 @@ main.container{padding:80px 0 56px}
 }
 
 /* ---- Unified card spacing ---- */
-.card + .card{
+/* 縦並び（grid以外）だけカード間隔を作る */
+:not(.grid) > .card + .card{
   margin-top: 14px;
 }
 
@@ -254,6 +255,6 @@ main.container{padding:80px 0 56px}
   .grid-2, .grid-3{ grid-template-columns: 1fr; }
   .grid{
     display: grid;
-    gap: 0;
+    gap: 14px;
   }
 }
