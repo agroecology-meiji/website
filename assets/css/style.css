@@ -148,32 +148,6 @@ main.container{padding:80px 0 56px}
   background: #d6c6af;
 }
 
-/* ===== Section Accent ===== */
-
-.section-title {
-  position: relative;
-  font-size: 22px;
-  margin-bottom: 18px;
-  padding-bottom: 8px;
-}
-
-/* ===== Section title spacing (works even if h2 has margin:0) ===== */
-.section-title{
-  margin: 0;                 /* inlineのmargin:0と同じでもOK */
-  padding-bottom: 0;
-}
-
-.section-title::after{
-  content:"";
-  display:block;
-  width:80px;
-  height:6px;
-  background: var(--accent);  /* #c7dc68 を指している想定 */
-  margin-top:10px;
-  margin-bottom:22px;         /* ← ここが「カードとの間隔」 */
-  border-radius: 999px;
-}
-
 /* ===== Brand Buttons ===== */
 
 .btn-primary {
@@ -221,76 +195,48 @@ main.container{padding:80px 0 56px}
   padding: 40px 0;
 }
 
-/* ----- Spacing: section title -> content ----- */
-.section-title {
-  margin-bottom: 18px; /* 見出しと本文の間隔 */
+
+/* =====================================================
+   SECTION SYSTEM (clean version – define once only)
+   ===================================================== */
+
+/* ---- Section container spacing ---- */
+.section{
+  margin-top: 40px;
 }
 
-/* 見出しの直後がカード/グリッドのときは少し強めに */
-.section-title + .grid,
-.section-title + .card,
-.section-title + ul,
-.section-title + ol {
-  margin-top: 10px;
+/* ---- Section title (single definition) ---- */
+.section-title{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  position: relative;
 }
 
-/* ===== Fix spacing under headings (Researches/Members) ===== */
-
-/* 見出し自体の下余白（section-title / section__title の両方） */
-.section-title,
-.section__title {
-  margin-bottom: 18px !important;
-}
-
-/* section__title の中の h2 も margin を潰しておく（詰まり防止） */
-.section__title h2 {
-  margin: 0 !important;
-}
-
-/* 見出しの直後に来る主要ブロックに余白を付与 */
-.section-title + .grid,
-.section-title + .card,
-.section-title + .kv,
-.section-title + ul,
-.section-title + ol,
-.section__title + .grid,
-.section__title + .card,
-.section__title + .kv,
-.section__title + ul,
-.section__title + ol {
-  margin-top: 12px !important;
-}
-
-/* Researches / Members: 見出し直下の最初のブロックに余白を強制 */
-.section-title + .card,
-.section-title + .grid {
-  margin-top: 18px !important;
-}
-
-/* 緑バー（section-title の下線）の下に余白を確保 */
-.section-title::after{
-  margin-bottom: 22px !important;
-}
-
-/* ===== FINAL spacing patch (put at very bottom) ===== */
-
-/* section-title 下のバー＋下余白を確実に作る */
+/* Green accent bar under section title */
 .section-title::after{
   content:"";
   display:block;
   width:80px;
   height:6px;
-  background: var(--accent);
-  margin:10px 0 24px 0 !important; /* ←バーの下を24px空ける */
-  border-radius:999px;
+  background: var(--accent);   /* #c7dc68 */
+  margin: 10px 0 24px 0;       /* ← ここでカードとの距離を確保 */
+  border-radius: 999px;
 }
 
-/* 見出しの直後の grid を確実に下げる（Researches/Members用） */
-.section-title + .grid{
-  margin-top: 18px !important;
+/* ---- Ensure spacing when grid/card follows ---- */
+.section-title + .grid,
+.section-title + .card{
+  margin-top: 0;   /* バーで余白を作るので不要 */
 }
 
-/* もし grid の上余白が別ルールで潰されていた場合の保険 */
-.grid{
-  margin-top: 0; /* 既存の変な上書きをリセット */
+/* ---- Page header (Researches / Members の上部) ---- */
+.page-title{
+  font-size: 26px;
+  margin: 0 0 8px 0;
+}
+
+.page-lead{
+  margin: 0 0 24px 0;
+  color: var(--muted);
 }
