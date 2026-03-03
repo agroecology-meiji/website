@@ -167,6 +167,11 @@ main.container{padding:80px 0 56px}
   transition: 0.2s;
 }
 
+/* ---- Unified card spacing ---- */
+.card + .card{
+  margin-top: 14px;
+}
+
 .card:hover {
   border-color: #c7dc68;
   transform: translateY(-3px);
@@ -247,5 +252,8 @@ main.container{padding:80px 0 56px}
 /* モバイルは1列にして gap も少し詰める */
 @media (max-width: 900px){
   .grid-2, .grid-3{ grid-template-columns: 1fr; }
-  .grid{ gap: 14px; }
+  .grid{
+    display: grid;
+    gap: 0;
+  }
 }
