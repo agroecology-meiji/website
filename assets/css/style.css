@@ -225,3 +225,30 @@ main.container{padding:80px 0 56px}
 .section-title + ol {
   margin-top: 10px;
 }
+
+/* ===== Fix spacing under headings (Researches/Members) ===== */
+
+/* 見出し自体の下余白（section-title / section__title の両方） */
+.section-title,
+.section__title {
+  margin-bottom: 18px !important;
+}
+
+/* section__title の中の h2 も margin を潰しておく（詰まり防止） */
+.section__title h2 {
+  margin: 0 !important;
+}
+
+/* 見出しの直後に来る主要ブロックに余白を付与 */
+.section-title + .grid,
+.section-title + .card,
+.section-title + .kv,
+.section-title + ul,
+.section-title + ol,
+.section__title + .grid,
+.section__title + .card,
+.section__title + .kv,
+.section__title + ul,
+.section__title + ol {
+  margin-top: 12px !important;
+}
