@@ -67,7 +67,7 @@ function initEmail() {
     if (!user || !domain || !tld) return;
 
     const email = `${user}@${domain}.${tld}`;
-    el.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+    el.textContent = email;
   });
 }
 
