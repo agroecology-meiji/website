@@ -6,33 +6,13 @@
   <title>Agroecology Lab</title>
   <link rel="stylesheet" href="/website/assets/css/style.css" />
 </head>
-
 <body>
-  <!-- Header (same layout as JP) -->
-<header class="site-header">
-  <div class="container header__row">
-    <a class="brand" href="../">
-      <span class="brand__logo" aria-hidden="true"></span>
-      <span class="brand__text">
-        <span class="brand__univ">Meiji University</span>
-        <span class="brand__lab">Agroecology Lab</span>
-      </span>
-    </a>
-
-    <div style="display:flex;gap:10px;align-items:center;">
-      <!-- 右上：Japanese → 日本語トップへ -->
-      <a class="btn btn--ghost" href="../">Japanese</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-    </div>
-  </div>
-
-</header>
+  <div id="site-header"></div>
 
   <main class="container">
-
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__img" style="background-image:url('../assets/img/hero.jpg');"></div>
+      <div class="hero__img" style="background-image:url('/website/assets/img/hero.jpg');"></div>
       <div class="hero__overlay"></div>
       <div class="hero__content">
         <h1 class="hero__title">Biodiversity sustains agriculture.</h1>
@@ -84,7 +64,7 @@
 
         <section class="card">
           <div class="tag">Mycorrhiza</div>
-          <h3 style="margin:10px 0 6px;">Mycorrhiza & Stress Tolerance</h3>
+          <h3 style="margin:10px 0 6px;">Mycorrhiza &amp; Stress Tolerance</h3>
           <p class="muted" style="margin:0;">Short description.</p>
         </section>
 
@@ -101,43 +81,10 @@
         </section>
       </div>
     </section>
-
   </main>
 
-<footer class="site-footer">
-  <div class="container footer__row">
-    <div class="muted">© <span id="y"></span> Agroecology Lab</div>
-    <div class="muted">
-      Contact: <span class="js-email" data-user="koizumit" data-domain="meiji" data-tld="ac.jp"></span>
-    </div>
-  </div>
-</footer>
+  <div id="site-footer"></div>
 
-<script>
-  // year
-  const y = document.getElementById('y');
-  if (y) y.textContent = new Date().getFullYear();
-
-  // email (split display)
-  document.querySelectorAll('.js-email').forEach(el => {
-    const user = el.dataset.user || '';
-    const domain = el.dataset.domain || '';
-    const tld = el.dataset.tld || '';
-    const addr = `${user}@${domain}.${tld}`;
-    el.textContent = addr;
-    el.href = `mailto:${addr}`;
-  });
-
-  // mobile nav toggle (if your JP pages use it)
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.site-nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-</script>
-
+  <script src="/website/assets/js/include.js" defer></script>
 </body>
 </html>
