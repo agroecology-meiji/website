@@ -1,29 +1,85 @@
-document.addEventListener("DOMContentLoaded", async function () {
-  const isEnglishPage = window.location.pathname.includes("/en/");
+document.addEventListener("DOMContentLoaded", async () => {
+  const base = "/website";
+  const path = window.location.pathname;
+  const isEnglish = path.includes("/en/");
 
-  const headerFile = isEnglishPage
-    ? "/website/includes/header-en.html"
-    : "/website/includes/header-ja.html";
+  const headerFile = isEnglish
+    ? `${base}/includes/header-en.html`
+    : `${base}/includes/header-ja.html`;
 
-  const footerFile = isEnglishPage
-    ? "/website/includes/footer-en.html"
-    : "/website/includes/footer-ja.html";
+  const footerFile = isEnglish
+    ? `${base}/includes/footer-en.html`
+    : `${base}/includes/footer-ja.html`;
 
-  async function loadHTML(selector, file) {
-    const element = document.querySelector(selector);
-    if (!element) return;
+  await Promise.all([
+    loadHTML("#site-header", headerFile),
+    loadHTML("#site-footer", footerFile)
+  ]);
 
-    try {
-      const response = await fetch(file);
-      if (!response.ok) {
-        throw new Error(`Failed to load ${file}`);
-      }
-      element.innerHTML = await response.text();
-    } catch (error) {
-      console.error(error);
-    }
+  setCurrentNav();
+  initFooterYear();
+  initEmail();
+  initNavToggle();
+});
+
+async function loadHTML(selector, file) {
+  const target = document.querySelector(selector);
+  if (!target) return;
+
+  const response = await fetch(file);
+  if (!response.ok) {
+    console.error(`Failed to load ${file}`);
+    return;
   }
 
-  await loadHTML("#header-placeholder", headerFile);
-  await loadHTML("#footer-placeholder", footerFile);
-});
+  target.innerHTML = await response.text();
+}
+
+function setCurrentNav() {
+  const path = window.location.pathname.replace(/\/index\.html$/, "/");
+
+  let current = "home";
+
+  if (path.includes("/researches/")) current = "researches";
+  else if (path.includes("/members/")) current = "members";
+  else if (path.includes("/news/")) current = "news";
+  else if (path.includes("/publications/")) current = "publications";
+  else if (path.includes("/contact/")) current = "contact";
+  else if (path.includes("/gallery/")) current = "gallery";
+
+  const link = document.querySelector(`[data-nav="${current}"]`);
+  if (link) link.classList.add("active");
+}
+
+function initFooterYear() {
+  const year = document.querySelector("#y");
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+}
+
+function initEmail() {
+  document.querySelectorAll(".js-email").forEach((el) => {
+    const user = el.dataset.user;
+    const domain = el.dataset.domain;
+    const tld = el.dataset.tld;
+
+    if (!user || !domain || !tld) return;
+
+    const email = `${user}@${domain}.${tld}`;
+    el.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+  });
+}
+
+function initNavToggle() {
+  const button = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".site-nav");
+
+  if (!button || !nav) return;
+
+  button.addEventListener("click", () => {
+    const expanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!expanded));
+    nav.classList.toggle("open");
+  });
+}

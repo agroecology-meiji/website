@@ -1,18 +1,30 @@
 <header class="site-header">
-  <div class="header-inner">
-    <a class="site-title" href="/website/">Agroecology Lab</a>
+  <div class="container header__row">
+    <a class="brand" href="/website/">
+      <span class="brand__logo" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__univ">明治大学農学部農学科</span>
+        <span class="brand__lab">アグロエコロジー研究室</span>
+      </span>
+    </a>
 
-    <button class="menu-toggle" aria-label="Menu">☰</button>
-
-    <nav class="site-nav">
-      <a href="/website/">Home</a>
-      <a href="/website/researches/">Researches</a>
-      <a href="/website/members/">Members</a>
-      <a href="/website/news/">News</a>
-      <a href="/website/publications/">Publications</a>
-      <a href="/website/contact/">Contact</a>
-      <a href="/website/gallery/">Gallery</a>
-      <a href="/website/en/">English</a>
-    </nav>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <a class="btn btn--ghost" href="/website/en/">English</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
   </div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="container">
+      <ul class="nav-list">
+        <li><a href="/website/" data-nav="home">Home</a></li>
+        <li><a href="/website/researches/" data-nav="researches">Researches</a></li>
+        <li><a href="/website/members/" data-nav="members">Members</a></li>
+        <li><a href="/website/news/" data-nav="news">News</a></li>
+        <li><a href="/website/publications/" data-nav="publications">Publications</a></li>
+        <li><a href="/website/contact/" data-nav="contact">Contact</a></li>
+        <li><a href="/website/gallery/" data-nav="gallery">Gallery</a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
