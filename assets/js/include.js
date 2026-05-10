@@ -83,3 +83,15 @@ function initNavToggle() {
     toggle.setAttribute("aria-expanded", String(open));
   });
 }
+
+document.addEventListener("contextmenu", (event) => {
+  if (event.target.classList.contains("no-save")) {
+    event.preventDefault();
+  }
+});
+
+document.addEventListener("dragstart", (event) => {
+  if (event.target.classList.contains("no-save")) {
+    event.preventDefault();
+  }
+});
