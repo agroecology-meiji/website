@@ -314,52 +314,44 @@ main.container{padding:80px 0 56px}
 .gallery-section {
   margin-top: 0;
 }
-
 .gallery-entry {
   margin-bottom: 44px;
 }
-
 .gallery-date {
   color: var(--accent2);
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 12px;
 }
-
 .gallery-entry__body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 36px;
   align-items: start;
 }
-
 .gallery-entry__text p {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.45;
   color: var(--text);
 }
-
 .gallery-entry__img {
-  width: 100%;
-  max-width: 360px;
+  width: 280px;
+  max-width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
 }
-
 /* スマホ表示 */
 @media (max-width: 700px) {
   .gallery-entry__body {
     display: block;
   }
-
   .gallery-entry__img {
     margin-top: 18px;
     max-width: 100%;
   }
-
   .gallery-entry__text p {
     font-size: 17px;
   }
