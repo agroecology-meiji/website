@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const base = "/website";
-  const path = window.location.pathname;
-  const isEnglish = path.includes("/en/");
+  const path = window.location.pathname.replace(/\/index\.html$/, "");
+
+  const isEnglish =
+    path === `${base}/en` ||
+    path.startsWith(`${base}/en/`);
 
   const headerFile = isEnglish
     ? `${base}/includes/header-en.html`
@@ -18,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   setCurrentNav();
   initFooterYear();
-  initEmail();
+  initEmailTextOnly();
   initNavToggle();
 });
 
@@ -26,13 +29,13 @@ async function loadHTML(selector, file) {
   const target = document.querySelector(selector);
   if (!target) return;
 
-  const response = await fetch(file);
-  if (!response.ok) {
-    console.error(`Failed to load ${file}`);
-    return;
+  try {
+    const response = await fetch(file);
+    if (!response.ok) throw new Error(`Failed to load ${file}`);
+    target.innerHTML = await response.text();
+  } catch (error) {
+    console.error(error);
   }
-
-  target.innerHTML = await response.text();
 }
 
 function setCurrentNav() {
@@ -47,39 +50,36 @@ function setCurrentNav() {
   else if (path.includes("/contact/")) current = "contact";
   else if (path.includes("/gallery/")) current = "gallery";
 
-  const link = document.querySelector(`[data-nav="${current}"]`);
+  const link = document.querySelector(`.nav-list a[data-nav="${current}"]`);
   if (link) link.classList.add("active");
 }
 
 function initFooterYear() {
-  const year = document.querySelector("#y");
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+  const y = document.getElementById("y");
+  if (y) y.textContent = new Date().getFullYear();
 }
 
-function initEmail() {
+function initEmailTextOnly() {
   document.querySelectorAll(".js-email").forEach((el) => {
-    const user = el.dataset.user;
-    const domain = el.dataset.domain;
-    const tld = el.dataset.tld;
+    const user = el.getAttribute("data-user") || "";
+    const domain = el.getAttribute("data-domain") || "";
+    const tld = el.getAttribute("data-tld") || "";
 
     if (!user || !domain || !tld) return;
 
-    const email = `${user}@${domain}.${tld}`;
-    el.textContent = email;
+    const addr = `${user}@${domain}.${tld}`;
+    el.textContent = addr;
   });
 }
 
 function initNavToggle() {
-  const button = document.querySelector(".nav-toggle");
+  const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
 
-  if (!button || !nav) return;
+  if (!toggle || !nav) return;
 
-  button.addEventListener("click", () => {
-    const expanded = button.getAttribute("aria-expanded") === "true";
-    button.setAttribute("aria-expanded", String(!expanded));
-    nav.classList.toggle("open");
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(open));
   });
 }
