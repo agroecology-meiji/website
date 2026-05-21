@@ -117,6 +117,21 @@ main.container{padding:80px 0 56px}
   font-size:20px;
 }
 
+/* ===== Publications ===== */
+
+.publication-card .publication-list {
+  padding-left: 1.4em;
+}
+
+.publication-card .publication-list li {
+  margin-bottom: 18px;
+  line-height: 1.8;
+}
+
+.publication-card .publication-list li:last-child {
+  margin-bottom: 0;
+}
+
 /* ===== Page header ===== */
 
 .page__header{
