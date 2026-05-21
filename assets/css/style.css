@@ -377,3 +377,33 @@ main.container{padding:80px 0 56px}
     font-size: 17px;
   }
 }
+
+/* ===== Contact page spacing ===== */
+
+.contact-card h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.contact-card p {
+  margin: 0 0 18px;
+}
+
+.contact-card h3 + p {
+  margin-top: 2px;
+}
+
+/* 「共同研究を希望の方へ」の上を広げる */
+.contact-card h3:not(:first-child) {
+  margin-top: 24px;
+}
+
+/* 共同研究の本文と下の線の間を広げる */
+.contact-card p + hr {
+  margin-top: 26px;
+}
+
+/* 線と次の見出しの間 */
+.contact-card hr {
+  margin-bottom: 14px;
+}
