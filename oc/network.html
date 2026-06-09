@@ -839,6 +839,72 @@ h1{
   }
 }
 
+
+/* smartphone: remove empty leftover frames after mobile reordering */
+@media (max-width: 820px){
+  main > section:nth-of-type(2):empty,
+  .dashboard:empty,
+  .graph-panel:empty,
+  .network-panel:empty{
+    display:none !important;
+    height:0 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+  }
+
+  /*
+    After moving the network/graph/explanation blocks into the settings card,
+    the original right-side section can become visually empty on iPhone.
+    Keep it from leaving a rounded blank card at the bottom.
+  */
+  main > section:nth-of-type(2){
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+  }
+
+  main > section:nth-of-type(2) > .dashboard:empty{
+    display:none !important;
+  }
+
+  .settings-card > .explain-box:last-child{
+    margin-bottom:0 !important;
+  }
+
+  main{
+    padding-bottom:10px !important;
+  }
+}
+
+
+/* smartphone: explicitly hide the cleared original right-side container */
+@media (max-width: 820px){
+  .mobile-cleared-section{
+    display:none !important;
+    height:0 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+  }
+
+  .mobile-cleared-dashboard{
+    display:none !important;
+    height:0 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1339,6 +1405,23 @@ function attachLineTooltip(){
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}}
 
 
+
+function updateMobileEmptyContainers(){
+  const mq=window.matchMedia("(max-width: 820px)");
+  const secondSection=document.querySelector("main > section:nth-of-type(2)");
+  const dashboard=document.querySelector(".dashboard");
+
+  if(!secondSection||!dashboard)return;
+
+  if(mq.matches){
+    secondSection.classList.add("mobile-cleared-section");
+    dashboard.classList.add("mobile-cleared-dashboard");
+  }else{
+    secondSection.classList.remove("mobile-cleared-section");
+    dashboard.classList.remove("mobile-cleared-dashboard");
+  }
+}
+
 function setupResponsiveOrder(){
   const mq=window.matchMedia("(max-width: 820px)");
 
@@ -1394,6 +1477,8 @@ function setupResponsiveOrder(){
       restore(summary);
       restore(explain);
     }
+
+    updateMobileEmptyContainers();
 
     setTimeout(()=>{
       drawNetwork(history.length?history[history.length-1]:null);
