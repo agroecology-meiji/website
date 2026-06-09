@@ -1191,7 +1191,48 @@ function evaluateState(negativeSet){
 function updateMetrics(state){document.getElementById("mSpecies").textContent=species.length||"-";document.getElementById("mLinks").textContent=links.length||"-";document.getElementById("mAvgLinks").textContent=species.length?((2*links.length)/species.length).toFixed(1):"-";document.getElementById("mNegative").textContent=state?Math.round(state.negativePct)+"%":"-";document.getElementById("mRemaining").textContent=state?state.remainingSpecies:"-"}
 function nodePositions(){const n=species.length,pos=[];for(let i=0;i<n;i++){const a=2*Math.PI*i/n-Math.PI/2;pos.push({x:260+185*Math.cos(a),y:260+185*Math.sin(a)})}return pos}
 function drawArrow(ctx,x1,y1,x2,y2,color,width,curveOffset=0){const angle=Math.atan2(y2-y1,x2-x1),nodeR=18,sx=x1+Math.cos(angle)*nodeR,sy=y1+Math.sin(angle)*nodeR,ex=x2-Math.cos(angle)*nodeR,ey=y2-Math.sin(angle)*nodeR,mx=(sx+ex)/2,my=(sy+ey)/2,nx=-Math.sin(angle),ny=Math.cos(angle),cx=mx+nx*curveOffset,cy=my+ny*curveOffset;ctx.beginPath();ctx.moveTo(sx,sy);ctx.quadraticCurveTo(cx,cy,ex,ey);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();const t=.92,qx=(1-t)*(1-t)*sx+2*(1-t)*t*cx+t*t*ex,qy=(1-t)*(1-t)*sy+2*(1-t)*t*cy+t*t*ey,dx=2*(1-t)*(cx-sx)+2*t*(ex-cx),dy=2*(1-t)*(cy-sy)+2*t*(ey-cy),a=Math.atan2(dy,dx);ctx.beginPath();ctx.moveTo(qx,qy);ctx.lineTo(qx-10*Math.cos(a-Math.PI/6),qy-10*Math.sin(a-Math.PI/6));ctx.lineTo(qx-10*Math.cos(a+Math.PI/6),qy-10*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fillStyle=color;ctx.fill()}
-function drawNetwork(state=null){const c=document.getElementById("network"),ctx=c.getContext("2d");ctx.clearRect(0,0,c.width,c.height);const pos=nodePositions(),negativeSet=state?state.negativeSet:new Set(),alive=state?state.alive:Array(species.length).fill(true);links.forEach((link,i)=>{const p1=pos[link.source],p2=pos[link.target],isNeg=negativeSet.has(i),isLost=(!alive[link.source]||!alive[link.target]),color=isLost?"#D9D9D9":(isNeg?"#3C5488":"#DC0000"),offset=((i%5)-2)*7;drawArrow(ctx,p1.x,p1.y,p2.x,p2.y,color,isLost?1.0:(isNeg?1.6:2.2),offset)});const actualDeg=actualTotalDegrees();species.forEach((s,i)=>{ctx.beginPath();ctx.arc(pos[i].x,pos[i].y,alive[i]?17:12,0,2*Math.PI);ctx.fillStyle=alive[i]?s.color:"#E9E0D5";ctx.fill();ctx.strokeStyle="#fff";ctx.lineWidth=2;ctx.stroke();ctx.fillStyle="#1f2a1f";ctx.font="12px sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(String(actualDeg[i]||0),pos[i].x,pos[i].y)});ctx.textBaseline="alphabetic"}
+function drawNetwork(state=null){
+  const c=document.getElementById("network"),ctx=c.getContext("2d");
+  ctx.clearRect(0,0,c.width,c.height);
+
+  const pos=nodePositions();
+  const negativeSet=state?state.negativeSet:new Set();
+  const alive=state?state.alive:Array(species.length).fill(true);
+
+  // 各ノードの数字は、その時点で実際に残っている相互作用数。
+  // 消えた種につながる相互作用は灰色で表示されるが、残存相互作用数には数えない。
+  const activeDeg=Array(species.length).fill(0);
+
+  links.forEach((link,i)=>{
+    const p1=pos[link.source],p2=pos[link.target];
+    const isNeg=negativeSet.has(i);
+    const isLost=(!alive[link.source]||!alive[link.target]);
+
+    if(!isLost){
+      activeDeg[link.source]++;
+      activeDeg[link.target]++;
+    }
+
+    const color=isLost?"#D9D9D9":(isNeg?"#3C5488":"#DC0000");
+    const offset=((i%5)-2)*7;
+    drawArrow(ctx,p1.x,p1.y,p2.x,p2.y,color,isLost?1.0:(isNeg?1.6:2.2),offset);
+  });
+
+  species.forEach((s,i)=>{
+    ctx.beginPath();
+    ctx.arc(pos[i].x,pos[i].y,alive[i]?17:12,0,2*Math.PI);
+    ctx.fillStyle=alive[i]?s.color:"#E9E0D5";
+    ctx.fill();
+    ctx.strokeStyle="#fff";
+    ctx.lineWidth=2;
+    ctx.stroke();
+    ctx.fillStyle="#1f2a1f";
+    ctx.font="12px sans-serif";
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+    ctx.fillText(activeDeg[i]||0,pos[i].x,pos[i].y);
+  });
+}
 function drawLine(){
   const c=document.getElementById("line"),ctx=c.getContext("2d");
   ctx.clearRect(0,0,c.width,c.height);
