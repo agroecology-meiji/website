@@ -745,6 +745,100 @@ h1{
   }
 }
 
+
+/* smartphone: place legend immediately above the network graph */
+@media (max-width: 820px){
+  .settings-card .legend{
+    order:5 !important;
+    width:100% !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    margin:16px 0 8px !important;
+    padding:8px 10px !important;
+    border-radius:12px !important;
+    background:#fffaf2 !important;
+    box-sizing:border-box !important;
+  }
+
+  .settings-card .network-panel{
+    order:6 !important;
+    margin-top:0 !important;
+  }
+
+  .settings-card .graph-panel{
+    order:7 !important;
+  }
+
+  .settings-card .summary{
+    order:8 !important;
+  }
+
+  .settings-card .targets-title{
+    order:9 !important;
+  }
+
+  .settings-card #targets{
+    order:10 !important;
+  }
+
+  .settings-card .explain-box{
+    order:11 !important;
+  }
+}
+
+
+/* smartphone: legend directly below the network title */
+@media (max-width: 820px){
+  .settings-card .network-panel .legend{
+    order:initial !important;
+    width:100% !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    justify-content:flex-start !important;
+    gap:10px !important;
+    margin:0 0 8px !important;
+    padding:8px 10px !important;
+    border-radius:12px !important;
+    background:#fffaf2 !important;
+    box-sizing:border-box !important;
+  }
+
+  .settings-card .network-panel{
+    order:5 !important;
+    margin-top:14px !important;
+  }
+
+  .settings-card .network-panel h2{
+    margin:0 0 6px !important;
+  }
+
+  .settings-card .network-frame{
+    margin-top:0 !important;
+  }
+
+  .settings-card .graph-panel{
+    order:6 !important;
+  }
+
+  .settings-card .summary{
+    order:7 !important;
+  }
+
+  .settings-card .targets-title{
+    order:8 !important;
+  }
+
+  .settings-card #targets{
+    order:9 !important;
+  }
+
+  .settings-card .explain-box{
+    order:10 !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1256,8 +1350,10 @@ function setupResponsiveOrder(){
   const networkPanel=document.querySelector(".network-panel");
   const graphPanel=document.querySelector(".graph-panel");
   const runButton=document.querySelector('button[onclick="runSimulation()"]');
+  const legend=document.querySelector(".legend");
+  const networkTitle=networkPanel ? networkPanel.querySelector("h2") : null;
 
-  if(!settingsCard||!summary||!targets||!explain||!dashboard||!networkPanel||!graphPanel||!runButton)return;
+  if(!settingsCard||!summary||!targets||!explain||!dashboard||!networkPanel||!graphPanel||!runButton||!legend||!networkTitle)return;
 
   function makePlaceholder(el, name){
     if(!el.__placeholder){
@@ -1270,6 +1366,7 @@ function setupResponsiveOrder(){
   makePlaceholder(explain,"explain");
   makePlaceholder(networkPanel,"networkPanel");
   makePlaceholder(graphPanel,"graphPanel");
+  makePlaceholder(legend,"legend");
 
   function restore(el){
     if(el.__placeholder && el.__placeholder.parentNode){
@@ -1281,14 +1378,17 @@ function setupResponsiveOrder(){
     if(mq.matches){
       // Smartphone order:
       // logo -> species -> interaction count -> scale-free/RUN
-      // -> network -> line graph -> per-species controls -> metrics -> explanation
+      // -> network title -> legend -> network graph -> line graph
+      // -> metrics -> per-species controls -> explanation
       runButton.insertAdjacentElement("afterend", networkPanel);
+      networkTitle.insertAdjacentElement("afterend", legend);
       networkPanel.insertAdjacentElement("afterend", graphPanel);
       graphPanel.insertAdjacentElement("afterend", summary);
       summary.insertAdjacentElement("afterend", targets);
       targets.insertAdjacentElement("afterend", explain);
     }else{
       // Restore PC layout exactly.
+      restore(legend);
       restore(networkPanel);
       restore(graphPanel);
       restore(summary);
