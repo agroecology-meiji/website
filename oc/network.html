@@ -1762,7 +1762,28 @@ function actualTotalDegrees(){
   return deg;
 }
 
-function runSimulation(){settingsChangedSinceRun=false;hoverIndex=null;makeNetwork();const order=[...Array(links.length).keys()];shuffle(order);history=[];for(let step=0;step<=order.length;step++){const negativeSet=new Set(order.slice(0,step)),state=evaluateState(negativeSet),rem=state.alive.filter(Boolean).length;history.push({step,negativeCount:step,negativePct:links.length?step/links.length*100:0,alive:state.alive,incomingPositive:state.incomingPositive,remainingSpecies:rem,remainingSpeciesPct:species.length?rem/species.length*100:0,negativeSet})}const last=history[history.length-1];hoverIndex=null;updateMetrics(last);drawNetwork(last);drawLine();setResultText(`結果：全相互作用が負の相互作用になると、残存種数は ${last.remainingSpecies}/${species.length} 種です。`)}
+function getDefaultHistoryIndex(){
+  if(!history||!history.length)return null;
+  if(history.length===1)return 0;
+  const targetCount=Math.round(links.length/2);
+  let bestIndex=0;
+  let bestDiff=Infinity;
+  for(let i=0;i<history.length;i++){
+    const diff=Math.abs(history[i].negativeCount-targetCount);
+    if(diff<bestDiff){
+      bestDiff=diff;
+      bestIndex=i;
+    }
+  }
+  return bestIndex;
+}
+
+function getDefaultHistoryState(){
+  const idx=getDefaultHistoryIndex();
+  return idx===null?null:history[idx];
+}
+
+function runSimulation(){settingsChangedSinceRun=false;hoverIndex=null;makeNetwork();const order=[...Array(links.length).keys()];shuffle(order);history=[];for(let step=0;step<=order.length;step++){const negativeSet=new Set(order.slice(0,step)),state=evaluateState(negativeSet),rem=state.alive.filter(Boolean).length;history.push({step,negativeCount:step,negativePct:links.length?step/links.length*100:0,alive:state.alive,incomingPositive:state.incomingPositive,remainingSpecies:rem,remainingSpeciesPct:species.length?rem/species.length*100:0,negativeSet})}const defaultState=getDefaultHistoryState();const last=history[history.length-1];hoverIndex=null;updateMetrics(defaultState);drawNetwork(defaultState);drawLine();setResultText(`結果：全相互作用が負の相互作用になると、残存種数は ${last.remainingSpecies}/${species.length} 種です。`)}
 function evaluateState(negativeSet){
   const n=species.length;
 
@@ -1980,7 +2001,8 @@ function drawLine(){
   ctx.lineCap="round";
   ctx.stroke();
 
-  const markerPoint=hoverIndex!==null&&linePoints[hoverIndex]?linePoints[hoverIndex]:linePoints[linePoints.length-1];
+  const defaultIndex=getDefaultHistoryIndex();
+  const markerPoint=hoverIndex!==null&&linePoints[hoverIndex]?linePoints[hoverIndex]:(defaultIndex!==null&&linePoints[defaultIndex]?linePoints[defaultIndex]:linePoints[linePoints.length-1]);
   if(markerPoint){
     ctx.strokeStyle="rgba(156,201,110,.45)";
     ctx.lineWidth=2;
@@ -2103,9 +2125,9 @@ function attachLineTooltip(){
     drawLine();
 
     if(!settingsChangedSinceRun&&history.length>0){
-      const last=history[history.length-1];
-      drawNetwork(last);
-      updateMetrics(last);
+      const defaultState=getDefaultHistoryState();
+      drawNetwork(defaultState);
+      updateMetrics(defaultState);
     }
   }
 
@@ -2231,7 +2253,7 @@ function setupResponsiveOrder(){
     updateMobileEmptyContainers();
 
     setTimeout(()=>{
-      drawNetwork(history.length?history[history.length-1]:null);
+      drawNetwork(getDefaultHistoryState());
       drawLine();
     },100);
   }
@@ -2275,8 +2297,8 @@ function initializeApp(){
 
     // iPhoneではレイアウト確定前にcanvasを描くと空白に見える場合があるため、
     // load後・少し遅延後・画面回転後にも再描画する。
-    setTimeout(()=>{drawNetwork(history.length?history[history.length-1]:null);drawLine();},100);
-    setTimeout(()=>{drawNetwork(history.length?history[history.length-1]:null);drawLine();},400);
+    setTimeout(()=>{drawNetwork(getDefaultHistoryState());drawLine();},100);
+    setTimeout(()=>{drawNetwork(getDefaultHistoryState());drawLine();},400);
   }catch(err){
     const msg=document.createElement("div");
     msg.style.cssText="position:fixed;left:8px;right:8px;bottom:8px;z-index:9999;background:#fff3f3;border:2px solid #c00;border-radius:10px;padding:10px;font-size:13px;color:#900;";
@@ -2293,15 +2315,15 @@ if(document.readyState==="loading"){
 }
 
 window.addEventListener("load",()=>{
-  setTimeout(()=>{drawNetwork(history.length?history[history.length-1]:null);drawLine();},150);
+  setTimeout(()=>{drawNetwork(getDefaultHistoryState());drawLine();},150);
 });
 
 window.addEventListener("resize",()=>{
-  setTimeout(()=>{drawNetwork(history.length?history[history.length-1]:null);drawLine();},100);
+  setTimeout(()=>{drawNetwork(getDefaultHistoryState());drawLine();},100);
 });
 
 window.addEventListener("orientationchange",()=>{
-  setTimeout(()=>{drawNetwork(history.length?history[history.length-1]:null);drawLine();},350);
+  setTimeout(()=>{drawNetwork(getDefaultHistoryState());drawLine();},350);
 });
 
 </script>
