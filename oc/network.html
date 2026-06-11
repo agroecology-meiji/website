@@ -1377,6 +1377,48 @@ canvas{
   height:calc(100% - 82px) !important;
 }
 
+
+/* final mobile cleanup: hide the original right-side shell after panels are moved into settings-card */
+@media (max-width:820px){
+  main > section:nth-of-type(2).mobile-cleared-section,
+  main > section:nth-of-type(2):has(.mobile-cleared-dashboard){
+    display:none !important;
+    height:0 !important;
+    min-height:0 !important;
+    max-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+    pointer-events:none !important;
+  }
+
+  .mobile-cleared-dashboard{
+    display:none !important;
+    height:0 !important;
+    min-height:0 !important;
+    max-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    box-shadow:none !important;
+    overflow:hidden !important;
+  }
+
+  .settings-card > .explain-box:last-child{
+    margin-bottom:0 !important;
+  }
+
+  main > section:first-child{
+    margin-bottom:0 !important;
+  }
+
+  main{
+    padding-bottom:10px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1953,9 +1995,33 @@ function updateMobileEmptyContainers(){
   if(mq.matches){
     secondSection.classList.add("mobile-cleared-section");
     dashboard.classList.add("mobile-cleared-dashboard");
+    secondSection.setAttribute("aria-hidden","true");
+    secondSection.style.display="none";
+    secondSection.style.height="0";
+    secondSection.style.minHeight="0";
+    secondSection.style.margin="0";
+    secondSection.style.padding="0";
+    secondSection.style.border="0";
+    dashboard.style.display="none";
+    dashboard.style.height="0";
+    dashboard.style.minHeight="0";
+    dashboard.style.margin="0";
+    dashboard.style.padding="0";
   }else{
     secondSection.classList.remove("mobile-cleared-section");
     dashboard.classList.remove("mobile-cleared-dashboard");
+    secondSection.removeAttribute("aria-hidden");
+    secondSection.style.display="";
+    secondSection.style.height="";
+    secondSection.style.minHeight="";
+    secondSection.style.margin="";
+    secondSection.style.padding="";
+    secondSection.style.border="";
+    dashboard.style.display="";
+    dashboard.style.height="";
+    dashboard.style.minHeight="";
+    dashboard.style.margin="";
+    dashboard.style.padding="";
   }
 }
 
