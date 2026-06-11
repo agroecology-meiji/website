@@ -1516,6 +1516,28 @@ main > .right-column{
   border-color:#E3C9A6 !important;
 }
 
+
+
+/* final mobile adjustments: straight header edge and logo immediately below the title */
+@media (max-width:820px){
+  header{
+    border-radius:0 !important;
+  }
+
+  .left-column{
+    display:flex !important;
+    flex-direction:column !important;
+  }
+
+  .left-column > .logo-card{
+    order:1 !important;
+  }
+
+  .left-column > .settings-card{
+    order:2 !important;
+  }
+}
+
 </style>
 </head>
 <body>
