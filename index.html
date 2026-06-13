@@ -3,50 +3,142 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Agroecology Lab</title>
-  <meta name="description" content="Research lab website." />
-  <link rel="stylesheet" href="/website/assets/css/style.css" />
+  <title>Agroecology Lab | 明治大学農学部 アグロエコロジー研究室</title>
+  <meta name="description" content="明治大学農学部農学科 アグロエコロジー研究室のウェブサイトです。" />
   <meta name="format-detection" content="telephone=no,email=no,address=no">
+  <link rel="stylesheet" href="/website/assets/css/style.css" />
 </head>
 <body>
-
   <div id="site-header"></div>
 
-<main class="container">
-
-  <section class="hero">
-    <div class="hero__img" style="background-image:url('./assets/img/hero.jpg');"></div>
-    <div class="hero__overlay"></div>
-    <div class="hero__content">
-      <h1 class="hero__title">農業は「生き物」が支えている</h1>
-      <p class="hero__lead">
-         研究概要
-      </p>
-    </div>
-   </section>
-
-  <section>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px;">
-      <h2 class="section-title" style="margin:0;">Latest News</h2>
-      <a href="./news/">See all →</a>
-    </div>
-
-      <div class="card">
-        <div class="muted">2026-04-01</div>
-        <p class="muted" style="margin:0;">3年生の9名がラボに加わりました。</p>
+  <main class="container">
+    <section class="home-hero">
+      <div class="hero-copy reveal">
+        <p class="kicker">明治大学　農学部　農学科</p>
+        <h1 class="home-title">農業は<br>「生き物」が<br>支えている</h1>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="home-lead">植物・菌類・微生物・昆虫がつくる関係性を読み解き、持続可能な農業生態系の理解と応用を目指します。</p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="/website/researches/">研究をみる</a>
+          <a class="btn btn--ghost" href="/website/contact/">参加・相談する</a>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="muted">2026-04-01</div>
-        <p class="muted" style="margin:0;">農学科アグロエコロジー研究室が新しく立ち上がりました。</p>
-      </div>
-    </div>
-  </section>
+      <div class="hero-side reveal">
 
-</main>
+<div class="slideshow slideshow--home js-slideshow" data-interval="5200" aria-label="研究室写真スライドショー">
+  <div class="slide is-active">
+    <img src="/website/assets/img/hero.jpg" alt="農地の風景">
+    <div class="slide__caption">
+      <div class="slide__label">Research field</div>
+      <h2 class="slide__title">田んぼの生態系を理解する</h2>
+      <p class="slide__text">生き物たちのつながりが、豊かな農業をつくる。</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="/website/assets/img/260518.jpg" alt="黒川農場の訪問風景">
+    <div class="slide__caption">
+      <div class="slide__label">Field visit</div>
+      <h2 class="slide__title">現場から問いを立てる</h2>
+      <p class="slide__text">農地・植物・微生物の関係性をフィールドで捉えます。</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="/website/assets/img/260511.jpg" alt="圃場に苗を定植した様子">
+    <div class="slide__caption">
+      <div class="slide__label">Lab activity</div>
+      <h2 class="slide__title">自分たちで設計し、育て、測る</h2>
+      <p class="slide__text">観察と実験を組み合わせて農業生態系を読み解きます。</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="/website/assets/img/260424.jpg" alt="生田キャンパス内の圃場整備">
+    <div class="slide__caption">
+      <div class="slide__label">Campus field</div>
+      <h2 class="slide__title">身近な農地を研究の入口に</h2>
+      <p class="slide__text">ラボの日常と研究のプロセスを発信しています。</p>
+    </div>
+  </div>
+  <button class="slide-btn slide-btn--prev" type="button" data-slide-prev aria-label="前の写真">‹</button>
+  <button class="slide-btn slide-btn--next" type="button" data-slide-next aria-label="次の写真">›</button>
+  <div class="slide-dots" role="tablist" aria-label="写真の選択">
+    <button class="slide-dot is-active" type="button" data-slide-to="0" aria-label="1枚目" aria-selected="true"></button>
+    <button class="slide-dot" type="button" data-slide-to="1" aria-label="2枚目" aria-selected="false"></button>
+    <button class="slide-dot" type="button" data-slide-to="2" aria-label="3枚目" aria-selected="false"></button>
+    <button class="slide-dot" type="button" data-slide-to="3" aria-label="4枚目" aria-selected="false"></button>
+  </div>
+</div>
+
+        <div class="hero-stats">
+          <a class="stat-card" href="/website/researches/">
+            <span class="stat-icon" aria-hidden="true">⚗</span>
+            <span>
+              <span class="stat-value">3</span>
+              <span class="stat-label">研究テーマ</span>
+              <span class="stat-note">多様な視点から生態系を解明</span>
+            </span>
+          </a>
+          <a class="stat-card" href="/website/members/">
+            <span class="stat-icon" aria-hidden="true">▣</span>
+            <span>
+              <span class="stat-value">9</span>
+              <span class="stat-label">所属学生</span>
+              <span class="stat-note">学部生・大学院生が在籍</span>
+            </span>
+          </a>
+          <a class="stat-card" href="/website/news/">
+            <span class="stat-icon" aria-hidden="true">▦</span>
+            <span>
+              <span class="stat-value" style="font-size:24px;">2026.04.01</span>
+              <span class="stat-label">最新のお知らせ</span>
+              <span class="stat-note">3年生の9名がラボに加わりました</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="latest-strip reveal" aria-label="最新情報">
+      <div class="latest-icon" aria-hidden="true">⌁</div>
+      <div>
+        <div class="latest-label">Latest update</div>
+        <div class="latest-date">2026.04.01</div>
+      </div>
+      <div class="latest-divider" aria-hidden="true"></div>
+      <div class="latest-text">3年生の9名がラボに加わりました。</div>
+      <a class="latest-link" href="/website/news/">お知らせ一覧を見る　›</a>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Research</p>
+          <h2 class="section-title">生き物のつながりを、農業の力に変える</h2>
+          <p class="section-lead">微生物・菌根共生・データ解析を軸に、農業生態系を支える見えない相互作用を探ります。</p>
+        </div>
+        <a class="btn btn--small" href="/website/researches/">詳しく見る</a>
+      </div>
+      <div class="grid grid-3">
+        <article class="card card--sharp">
+          <span class="tag">Microbiome</span>
+          <h3 class="card-title">環境変動と微生物叢</h3>
+          <p class="card-text">温度・水分・土壌条件の変化に対して、微生物群集がどのように応答するかを調べます。</p>
+        </article>
+        <article class="card card--sharp">
+          <span class="tag">Mycorrhiza</span>
+          <h3 class="card-title">菌根共生と植物のストレス耐性</h3>
+          <p class="card-text">植物と菌類の共生が、乾燥・塩・栄養条件などのストレス応答に与える影響を解析します。</p>
+        </article>
+        <article class="card card--sharp">
+          <span class="tag">Data-driven</span>
+          <h3 class="card-title">生態系データの解析と可視化</h3>
+          <p class="card-text">DNA情報・環境データ・時系列データを統合し、生態系の変化を読み解きます。</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
   <div id="site-footer"></div>
-
   <script src="/website/assets/js/include.js" defer></script>
 </body>
 </html>

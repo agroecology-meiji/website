@@ -3,48 +3,80 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Researches | Agroecology Lab</title>
-  <meta name="description" content="研究テーマの紹介" />
-  <link rel="stylesheet" href="/website/assets/css/style.css" />
+  <title>Research | Agroecology Lab</title>
+  <meta name="description" content="アグロエコロジー研究室の研究テーマを紹介します。" />
   <meta name="format-detection" content="telephone=no,email=no,address=no">
+  <link rel="stylesheet" href="/website/assets/css/style.css" />
 </head>
 <body>
   <div id="site-header"></div>
 
   <main class="container">
-    <h1 class="page-title">Researches</h1>
-    <p class="page-lead">研究テーマを紹介します。</p>
-    <h2 class="section-title">Topics</h2>
+    <section class="page-hero reveal">
+      <div>
+        <p class="kicker">Research</p>
+        <h1 class="page-title">Research</h1>
+        <p class="page-lead">植物・菌類・微生物・昆虫がつくる関係性を読み解き、持続可能な農業生態系の理解と応用を目指します。</p>
+      </div>
+      <div class="page-visual">
+        <img src="/website/assets/img/hero.jpg" alt="農地の風景">
+        <div class="page-visual__label">Agroecosystem</div>
+      </div>
+    </section>
 
-    <div class="grid grid-2">
-      <section class="card">
-        <div class="tag">**</div>
-        <h2 style="margin:10px 0 6px;font-size:18px;">環境変動と微生物叢</h2>
-        <p class="muted" style="margin:0;">**</p>
-      </section>
-
-      <section class="card">
-        <div class="tag">Mycorrhiza</div>
-        <h2 style="margin:10px 0 6px;font-size:18px;">菌根共生と植物のストレス耐性</h2>
-        <p class="muted" style="margin:0;">**</p>
-      </section>
-
-      <section class="card">
-        <div class="tag">Agroecology</div>
-        <h2 style="margin:10px 0 6px;font-size:18px;">微生物の多様性とレジリエンス</h2>
-        <p class="muted" style="margin:0;">**</p>
-      </section>
-
-      <section class="card">
-        <div class="tag">Data-driven</div>
-        <h2 style="margin:10px 0 6px;font-size:18px;">微生物叢とバイオセンサー</h2>
-        <p class="muted" style="margin:0;">**</p>
-      </section>
-    </div>
+    <section class="section reveal">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Topics</p>
+          <h2 class="section-title">主な研究テーマ</h2>
+        </div>
+      </div>
+      <div class="grid grid-2">
+        <section class="card card--sharp">
+          <span class="tag">Microbiome</span>
+          <h2 class="card-title">環境変動と微生物叢</h2>
+          <p class="card-text">温度・水分・土壌条件などの環境変動に対して、農地や植物根圏の微生物群集がどのように変化するのかを調べます。</p>
+          <ul class="card-list">
+            <li>環境DNA・アンプリコン解析</li>
+            <li>群集構造と環境要因の対応</li>
+            <li>時系列データの解析</li>
+          </ul>
+        </section>
+        <section class="card card--sharp">
+          <span class="tag">Mycorrhiza</span>
+          <h2 class="card-title">菌根共生と植物のストレス耐性</h2>
+          <p class="card-text">植物の根と菌類の共生関係に着目し、植物の成長やストレス応答を支える仕組みを明らかにします。</p>
+          <ul class="card-list">
+            <li>菌根菌の群集解析</li>
+            <li>植物—微生物相互作用</li>
+            <li>ストレス応答の評価</li>
+          </ul>
+        </section>
+        <section class="card card--sharp">
+          <span class="tag">Agroecology</span>
+          <h2 class="card-title">微生物の多様性とレジリエンス</h2>
+          <p class="card-text">多様な生き物がつくるネットワークが、農業生態系の安定性や回復力にどのように関わるのかを探ります。</p>
+          <ul class="card-list">
+            <li>生物間相互作用</li>
+            <li>多様性と安定性</li>
+            <li>農地生態系の可視化</li>
+          </ul>
+        </section>
+        <section class="card card--sharp">
+          <span class="tag">Data-driven</span>
+          <h2 class="card-title">微生物叢とバイオセンサー</h2>
+          <p class="card-text">微生物叢やオミクスデータから環境状態を読み解くためのデータ解析・予測手法を活用します。</p>
+          <ul class="card-list">
+            <li>R / Pythonによる解析</li>
+            <li>多変量解析・予測モデル</li>
+            <li>研究データの可視化</li>
+          </ul>
+        </section>
+      </div>
+    </section>
   </main>
 
   <div id="site-footer"></div>
-
   <script src="/website/assets/js/include.js" defer></script>
 </body>
 </html>

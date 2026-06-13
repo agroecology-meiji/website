@@ -1,34 +1,28 @@
 <header class="site-header">
   <div class="container header__row">
-    <a class="brand" href="/website/">
-      <img
-        class="brand__logo"
-        src="/website/assets/img/logo_main.png"
-        alt="アグロエコロジー研究室ロゴ"
-      >
+    <a class="brand" href="/website/" aria-label="アグロエコロジー研究室 ホーム">
+      <span class="brand__logoWrap">
+        <img class="brand__logo" src="/website/assets/img/logo_main.png" alt="アグロエコロジー研究室ロゴ">
+      </span>
       <span class="brand__text">
-        <span class="brand__univ">明治大学農学部農学科</span>
-        <span class="brand__lab">アグロエコロジー研究室</span>
+        <span class="brand__lab">Agroecology Lab</span>
+        <span class="brand__univ">Meiji University</span>
       </span>
     </a>
 
-    <div style="display:flex;gap:10px;align-items:center;">
-      <a class="btn btn--ghost" href="/website/en/">English</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <div class="header__actions">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="/website/researches/" data-nav="researches">Research</a></li>
+          <li><a href="/website/members/" data-nav="members">Members</a></li>
+          <li><a href="/website/news/" data-nav="news">News</a></li>
+          <li><a href="/website/publications/" data-nav="publications">Publications</a></li>
+          <li><a href="/website/gallery/" data-nav="gallery">Gallery</a></li>
+          <li><a href="/website/contact/" data-nav="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="lang-pill" href="/website/en/" aria-label="English page">EN</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </div>
-
-  <nav class="site-nav" aria-label="Primary navigation">
-    <div class="container">
-      <ul class="nav-list">
-        <li><a href="/website/" data-nav="home">ホーム</a></li>
-        <li><a href="/website/researches/" data-nav="researches">研究内容</a></li>
-        <li><a href="/website/members/" data-nav="members">メンバー</a></li>
-        <li><a href="/website/news/" data-nav="news">ニュース</a></li>
-        <li><a href="/website/publications/" data-nav="publications">業績</a></li>
-        <li><a href="/website/contact/" data-nav="contact">お問い合わせ</a></li>
-        <li><a href="/website/gallery/" data-nav="gallery">ギャラリー</a></li>
-      </ul>
-    </div>
-  </nav>
 </header>
