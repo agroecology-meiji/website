@@ -8,103 +8,185 @@
   <meta name="format-detection" content="telephone=no,email=no,address=no">
   <link rel="stylesheet" href="/website/assets/css/style.css" />
 
+  <style>
+    /* Top-page only adjustments requested in the annotated screenshot. */
+    .site-header .header__row{
+      min-height:72px;
+    }
+    .site-header .brand{
+      padding:6px 0;
+      gap:12px;
+    }
+    .site-header .brand__logoWrap{
+      width:52px !important;
+      height:52px !important;
+      overflow:hidden;
+      box-shadow:none;
+      border-left:4px solid var(--concept);
+      border-bottom:4px solid var(--sub);
+    }
+    .site-header .brand__logo{
+      width:100% !important;
+      height:100% !important;
+      object-fit:contain;
+      padding:4px !important;
+      display:block;
+    }
+
+    .home-hero{
+      place-items:center start;
+    }
+    .hero-copy{
+      width:min(900px,calc(100% - 88px));
+      margin-left:max(96px,calc((100vw - var(--maxw)) / 2 + 96px));
+      margin-right:auto;
+      text-align:left;
+      padding:96px 0 112px;
+    }
+    .hero-copy .kicker{
+      justify-content:flex-start;
+    }
+    .home-title{
+      max-width:720px;
+      text-align:left;
+      font-size:clamp(58px,7.9vw,112px);
+    }
+    .title-rule{
+      margin-left:0;
+      margin-right:0;
+    }
+    .home-lead{
+      max-width:700px;
+      margin-left:0;
+      margin-right:0;
+      text-align:left;
+    }
+    .hero-actions{
+      justify-content:flex-start;
+    }
+
+    @media (max-width: 900px){
+      .hero-copy{
+        width:min(100% - 44px,var(--maxw));
+        margin-inline:auto;
+        padding:82px 0 100px;
+      }
+      .site-header .brand__logoWrap{
+        width:48px !important;
+        height:48px !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
 
-  <main class="container">
-    <section class="home-hero">
+  <main class="home-main">
+    <section class="home-hero" aria-label="トップページメインビジュアル">
+      <div class="slideshow slideshow--home js-slideshow" data-interval="5200" aria-label="研究室写真スライドショー">
+        <div class="slide is-active"><img src="/website/assets/img/hero.jpg" alt="農地の風景"></div>
+        <div class="slide"><img src="/website/assets/img/260518.jpg" alt="黒川農場の訪問風景"></div>
+        <div class="slide"><img src="/website/assets/img/260511.jpg" alt="圃場に苗を定植した様子"></div>
+        <div class="slide"><img src="/website/assets/img/260424.jpg" alt="生田キャンパス内の圃場整備"></div>
+        <button class="slide-btn slide-btn--prev" type="button" data-slide-prev aria-label="前の写真">‹</button>
+        <button class="slide-btn slide-btn--next" type="button" data-slide-next aria-label="次の写真">›</button>
+        <div class="slide-dots" role="tablist" aria-label="写真の選択">
+          <button class="slide-dot is-active" type="button" data-slide-to="0" aria-label="1枚目" aria-selected="true"></button>
+          <button class="slide-dot" type="button" data-slide-to="1" aria-label="2枚目" aria-selected="false"></button>
+          <button class="slide-dot" type="button" data-slide-to="2" aria-label="3枚目" aria-selected="false"></button>
+          <button class="slide-dot" type="button" data-slide-to="3" aria-label="4枚目" aria-selected="false"></button>
+        </div>
+      </div>
+
       <div class="hero-copy reveal">
+        <p class="kicker">明治大学　農学部　農学科</p>
         <h1 class="home-title">農業は<br>生き物が<br>支えている</h1>
         <div class="title-rule" aria-hidden="true"></div>
         <p class="home-lead">植物・動物・微生物・環境がつくる関係性を読み解き、<br>持続可能な農業生態系の理解と応用を目指します。</p>
         <div class="hero-actions">
-          <a class="btn btn--primary" href="/website/researches/">研究</a>
+          <a class="btn btn--primary" href="/website/researches/">研究を見る</a>
           <a class="btn btn--ghost" href="/website/contact/">お問い合わせ</a>
         </div>
       </div>
-
-      <div class="hero-side reveal">
-
-<div class="slideshow slideshow--home js-slideshow" data-interval="5200" aria-label="研究室写真スライドショー">
-  <div class="slide is-active">
-    <img src="/website/assets/img/hero.jpg" alt="農地の風景">
-    <div class="slide__caption">
-      <div class="slide__label">Research field</div>
-      <h2 class="slide__title">農業生態系を理解する</h2>
-      <p class="slide__text">生き物たちのつながりが、豊かな農業をつくる。</p>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="/website/assets/img/260518.jpg" alt="黒川農場の訪問風景">
-    <div class="slide__caption">
-      <div class="slide__label">Field visit</div>
-      <h2 class="slide__title">現場から問いを立てる</h2>
-      <p class="slide__text">農地・植物・微生物の関係性をフィールドで捉えます。</p>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="/website/assets/img/260511.jpg" alt="圃場に苗を定植した様子">
-    <div class="slide__caption">
-      <div class="slide__label">Lab activity</div>
-      <h2 class="slide__title">自分たちで設計し、育て、測る</h2>
-      <p class="slide__text">観察と実験を組み合わせて農業生態系を読み解きます。</p>
-    </div>
-  </div>
-  <div class="slide">
-    <img src="/website/assets/img/260424.jpg" alt="生田キャンパス内の圃場整備">
-    <div class="slide__caption">
-      <div class="slide__label">Campus field</div>
-      <h2 class="slide__title">身近な農地を研究の入口に</h2>
-      <p class="slide__text">ラボの日常と研究のプロセスを発信しています。</p>
-    </div>
-  </div>
-  <button class="slide-btn slide-btn--prev" type="button" data-slide-prev aria-label="前の写真">‹</button>
-  <button class="slide-btn slide-btn--next" type="button" data-slide-next aria-label="次の写真">›</button>
-  <div class="slide-dots" role="tablist" aria-label="写真の選択">
-    <button class="slide-dot is-active" type="button" data-slide-to="0" aria-label="1枚目" aria-selected="true"></button>
-    <button class="slide-dot" type="button" data-slide-to="1" aria-label="2枚目" aria-selected="false"></button>
-    <button class="slide-dot" type="button" data-slide-to="2" aria-label="3枚目" aria-selected="false"></button>
-    <button class="slide-dot" type="button" data-slide-to="3" aria-label="4枚目" aria-selected="false"></button>
-  </div>
-</div>
-      </div>
     </section>
 
-    <section class="latest-strip reveal" aria-label="最新情報">
-      <div class="latest-icon" aria-hidden="true">⌁</div>
+    <section class="container home-feature-cards reveal" aria-label="研究室の特徴">
+      <article class="home-feature-card">
+        <span class="feature-number">01</span>
+        <span class="feature-icon" aria-hidden="true">◌</span>
+        <h3>植物—微生物共生</h3>
+        <p>菌根菌や根圏微生物が、植物の養分獲得やストレス応答を支える仕組みを調べます。</p>
+      </article>
+      <article class="home-feature-card">
+        <span class="feature-number">02</span>
+        <span class="feature-icon" aria-hidden="true">◇</span>
+        <h3>農業生態系デザイン</h3>
+        <p>微生物・昆虫・植物の相互作用から、農業生態系の安定性と回復力を考えます。</p>
+      </article>
+      <article class="home-feature-card">
+        <span class="feature-number">03</span>
+        <span class="feature-icon" aria-hidden="true">▦</span>
+        <h3>データで可視化する</h3>
+        <p>DNA情報・オミクスデータ・環境データを統合し、見えない生物機能を読み解きます。</p>
+      </article>
+    </section>
+
+    <section class="container home-about reveal">
       <div>
-        <div class="latest-label">Latest update</div>
-        <div class="latest-date">2026.04.01</div>
+        <p class="about-label">About Agroecology Lab</p>
+        <h2 class="about-title">生態学の知見を、<br>農業の力に変える</h2>
+        <div class="about-tabs" aria-label="研究アプローチ">
+          <span class="about-tab">Field</span>
+          <span class="about-tab">Experiment</span>
+          <span class="about-tab">DNA / Omics</span>
+          <span class="about-tab">Data science</span>
+        </div>
+        <p class="about-text">農地を、作物を育てる場所であると同時に、多様な生き物が相互作用する生態系として捉えます。森林の菌根菌・微生物群集研究で培った生態学とデータ解析を、作物・土壌・微生物の関係理解へ展開します。</p>
+        <p class="about-text">「どの生物がいるか」だけでなく、「いつ、どこで、どのように働くか」を重視し、持続可能な農業を支える生物機能の理解と活用を目指します。</p>
+        <ul class="about-list">
+          <li>フィールド調査</li>
+          <li>栽培実験</li>
+          <li>菌根菌・根圏微生物</li>
+          <li>生物間相互作用</li>
+        </ul>
       </div>
-      <div class="latest-divider" aria-hidden="true"></div>
-      <div class="latest-text">3年生の9名がラボに加わりました。</div>
-      <a class="latest-link" href="/website/news/">お知らせ一覧を見る　›</a>
+      <div class="about-photo">
+        <img src="/website/assets/img/260511.jpg" alt="圃場での研究活動">
+      </div>
     </section>
 
-    <section class="section reveal">
+    <section class="container stats-band reveal" aria-label="研究室概要">
+      <div class="stats-grid">
+        <div class="stats-item"><span class="stats-value">4</span><span class="stats-label">Research themes</span></div>
+        <div class="stats-item"><span class="stats-value">9</span><span class="stats-label">Students</span></div>
+        <div class="stats-item"><span class="stats-value">2026</span><span class="stats-label">Lab start</span></div>
+        <div class="stats-item"><span class="stats-value">Field</span><span class="stats-label">Observation & experiment</span></div>
+      </div>
+    </section>
+
+    <section class="container home-info reveal" aria-label="最新情報">
+      <div class="latest-strip">
+        <div class="latest-label">Information</div>
+        <div class="latest-date">2026.04.01</div>
+        <div class="latest-text">3年生の9名がラボに加わりました。</div>
+        <a class="latest-link" href="/website/news/">View More　→</a>
+      </div>
+    </section>
+
+    <section class="container section home-portfolio reveal">
       <div class="section-head">
         <div>
-          <h2 class="section-title">生態学の知見を、農業の力に変える</h2>
+          <p class="section-kicker">Research fields</p>
+          <h2 class="section-title">農業生態系を読み解く視点</h2>
         </div>
         <a class="btn btn--small" href="/website/researches/">詳しく見る</a>
       </div>
-      <div class="grid grid-3">
-        <article class="card card--sharp">
-          <span class="tag">Symbiosis</span>
-          <h3 class="card-title">植物—微生物共生を理解する</h3>
-          <p class="card-text">菌根菌や根圏微生物が、植物の養分獲得やストレス応答を支える仕組みを調べます。</p>
-        </article>
-        <article class="card card--sharp">
-          <span class="tag">Agroecology</span>
-          <h3 class="card-title">生物多様性を農業に活かす</h3>
-          <p class="card-text">微生物・昆虫・植物の相互作用から、農業生態系の安定性と回復力を考えます。</p>
-        </article>
-        <article class="card card--sharp">
-          <span class="tag">Data-driven</span>
-          <h3 class="card-title">見えない生態系をデータで読む</h3>
-          <p class="card-text">DNA情報・オミクスデータ・環境データを統合し、生物機能を可視化します。</p>
-        </article>
+      <div class="portfolio-grid">
+        <article class="portfolio-card"><img src="/website/assets/img/hero.jpg" alt="農地の風景"><div class="portfolio-caption"><h3>Field ecology</h3><p>Research field</p></div></article>
+        <article class="portfolio-card"><img src="/website/assets/img/260518.jpg" alt="黒川農場の訪問風景"><div class="portfolio-caption"><h3>Field visit</h3><p>Question from field</p></div></article>
+        <article class="portfolio-card"><img src="/website/assets/img/260511.jpg" alt="圃場に苗を定植した様子"><div class="portfolio-caption"><h3>Lab activity</h3><p>Design and measure</p></div></article>
+        <article class="portfolio-card"><img src="/website/assets/img/260424.jpg" alt="生田キャンパス内の圃場整備"><div class="portfolio-caption"><h3>Campus field</h3><p>Everyday research</p></div></article>
+        <article class="portfolio-card"><img src="/website/assets/img/hero.jpg" alt="農地の風景"><div class="portfolio-caption"><h3>Data-driven</h3><p>Hidden ecosystem</p></div></article>
       </div>
     </section>
   </main>
