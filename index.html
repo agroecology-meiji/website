@@ -145,6 +145,45 @@
       margin-top:24px !important;
     }
 
+
+
+    /* 2026-06-19 additional screenshot fixes: logo size, title spacing, ghost CTA. */
+    .site-header .brand__logoWrap{
+      width:38px !important;
+      height:38px !important;
+      flex:0 0 38px !important;
+      overflow:hidden !important;
+    }
+    .site-header .brand__logo{
+      width:100% !important;
+      height:100% !important;
+      object-fit:contain !important;
+      padding:0 !important;
+    }
+    .site-header .brand{
+      gap:10px !important;
+      padding:7px 0 !important;
+    }
+    .site-header .header__row{
+      min-height:62px !important;
+    }
+    .home-title{
+      letter-spacing:.035em !important;
+      line-height:1.08 !important;
+    }
+    .hero-actions .btn--ghost{
+      background:transparent !important;
+      border-color:transparent !important;
+      box-shadow:none !important;
+      color:#fff !important;
+    }
+    .hero-actions .btn--ghost:hover,
+    .hero-actions .btn--ghost:focus-visible{
+      background:rgba(255,255,255,.08) !important;
+      border-color:transparent !important;
+      color:#fff !important;
+    }
+
     @media (max-width: 900px){
       .hero-copy{
         width:min(100% - 44px,var(--maxw));
