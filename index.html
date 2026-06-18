@@ -7,6 +7,39 @@
   <meta name="description" content="明治大学農学部農学科 アグロエコロジー研究室のウェブサイトです。" />
   <meta name="format-detection" content="telephone=no,email=no,address=no">
   <link rel="stylesheet" href="/website/assets/css/style.css" />
+
+  <style>
+    /* index-specific refinements requested from screenshots */
+    .brand__logoWrap{
+      overflow:visible;
+      background:transparent;
+      box-shadow:none;
+      border-radius:0;
+      width:64px;
+      height:64px;
+    }
+    .brand__logo{
+      object-fit:contain;
+      width:100%;
+      height:100%;
+    }
+    .header__actions{gap:18px;}
+    .nav-list{gap:22px;}
+    .hero-side{align-self:center;}
+    .slideshow--home{box-shadow:0 18px 42px rgba(6,40,24,.13);}
+    .latest-text{
+      font-size:clamp(20px,2.05vw,30px);
+      line-height:1.45;
+      font-weight:900;
+      color:var(--green-900);
+    }
+    .section-head{align-items:end;}
+    .section-title{margin-top:0;}
+    @media (max-width: 860px){
+      .brand__logoWrap{width:52px;height:52px;}
+      .latest-text{font-size:20px;}
+    }
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
@@ -68,33 +101,6 @@
     <button class="slide-dot" type="button" data-slide-to="3" aria-label="4枚目" aria-selected="false"></button>
   </div>
 </div>
-
-        <div class="hero-stats">
-          <a class="stat-card" href="/website/researches/">
-            <span class="stat-icon" aria-hidden="true">⚗</span>
-            <span>
-              <span class="stat-value">4</span>
-              <span class="stat-label">研究テーマ</span>
-              <span class="stat-note">生態学の知見を農業へ展開</span>
-            </span>
-          </a>
-          <a class="stat-card" href="/website/members/">
-            <span class="stat-icon" aria-hidden="true">▣</span>
-            <span>
-              <span class="stat-value">9</span>
-              <span class="stat-label">所属学生</span>
-              <span class="stat-note">学部生・大学院生が在籍</span>
-            </span>
-          </a>
-          <a class="stat-card" href="/website/news/">
-            <span class="stat-icon" aria-hidden="true">▦</span>
-            <span>
-              <span class="stat-value" style="font-size:24px;">2026.04.01</span>
-              <span class="stat-label">最新のお知らせ</span>
-              <span class="stat-note">3年生の9名がラボに加わりました</span>
-            </span>
-          </a>
-        </div>
       </div>
     </section>
 
@@ -112,9 +118,7 @@
     <section class="section reveal">
       <div class="section-head">
         <div>
-          <p class="section-kicker">Research</p>
           <h2 class="section-title">生態学の知見を、農業の力に変える</h2>
-          <p class="section-lead">生物どうし、そして環境との相互作用を読み解き、持続可能な農業を支える生物機能の理解と活用を目指します。</p>
         </div>
         <a class="btn btn--small" href="/website/researches/">詳しく見る</a>
       </div>
@@ -140,5 +144,34 @@
 
   <div id="site-footer"></div>
   <script src="/website/assets/js/include.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const base = '/website';
+      const path = window.location.pathname.replace(/\/index\.html$/, '');
+      const isEnglish = path === `${base}/en` || path.startsWith(`${base}/en/`);
+      const labels = isEnglish
+        ? {researches:'Research', members:'Members', news:'News', publications:'Publications', gallery:'Gallery', contact:'Contact'}
+        : {researches:'研究', members:'メンバー', news:'ニュース', publications:'業績', gallery:'ギャラリー', contact:'お問い合わせ'};
+
+      const applyHeaderText = () => {
+        document.querySelectorAll('.brand__logo').forEach((img) => {
+          img.style.objectFit = 'contain';
+        });
+        document.querySelectorAll('.nav-list a[data-nav]').forEach((a) => {
+          const key = a.getAttribute('data-nav');
+          if (labels[key]) a.textContent = labels[key];
+        });
+        const lang = document.querySelector('.lang-pill');
+        if (lang) lang.textContent = isEnglish ? 'JP' : 'EN';
+      };
+
+      applyHeaderText();
+      const headerTarget = document.getElementById('site-header');
+      if (headerTarget) {
+        new MutationObserver(applyHeaderText).observe(headerTarget, {childList:true, subtree:true});
+      }
+    });
+  </script>
+
 </body>
 </html>
