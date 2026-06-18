@@ -65,6 +65,86 @@
       justify-content:flex-start;
     }
 
+
+
+    /* Latest screenshot instructions: header background, logo frame, hero labels/brightness. */
+    .site-header{
+      background:var(--white) !important;
+      color:var(--green-900) !important;
+      box-shadow:0 10px 28px rgba(6,40,24,.08) !important;
+      border-bottom:4px solid var(--concept) !important;
+    }
+    .site-header .brand,
+    .site-header .brand:hover{
+      color:var(--green-900) !important;
+    }
+    .site-header .brand__lab{
+      color:var(--green-900) !important;
+    }
+    .site-header .brand__univ{
+      color:var(--text) !important;
+    }
+    .site-header .brand__text{
+      border-left:1px solid var(--concept) !important;
+    }
+    .site-header .brand__logoWrap{
+      width:46px !important;
+      height:46px !important;
+      padding:0 !important;
+      border:0 !important;
+      background:transparent !important;
+      box-shadow:none !important;
+      overflow:hidden !important;
+    }
+    .site-header .brand__logo{
+      padding:0 !important;
+      transform:none !important;
+    }
+    .site-header .nav-list{
+      border-color:var(--line) !important;
+    }
+    .site-header .nav-list a{
+      color:var(--green-900) !important;
+      border-right-color:var(--line) !important;
+      background:transparent !important;
+    }
+    .site-header .nav-list a:hover,
+    .site-header .nav-list a.active{
+      color:var(--green-900) !important;
+      background:rgba(156,201,110,.18) !important;
+      border-bottom-color:var(--concept) !important;
+    }
+    .site-header .lang-pill{
+      background:var(--green-900) !important;
+      color:var(--white) !important;
+      border-color:var(--green-900) !important;
+    }
+    .site-header .lang-pill:hover{
+      background:var(--concept) !important;
+      color:var(--green-900) !important;
+    }
+    .site-header .nav-toggle{
+      color:var(--green-900) !important;
+      border-color:var(--line-strong) !important;
+    }
+
+    .home-hero::before{
+      background:
+        linear-gradient(180deg,rgba(6,40,24,.14) 0%,rgba(6,40,24,.25) 55%,rgba(6,40,24,.44) 100%),
+        linear-gradient(90deg,rgba(6,40,24,.32),rgba(6,40,24,.08) 58%,rgba(6,40,24,.22)) !important;
+    }
+    .home-hero .slide img{
+      filter:saturate(1.08) contrast(1.02) brightness(1.13) !important;
+    }
+    .hero-copy .kicker,
+    .kicker::before,
+    .kicker::after{
+      display:none !important;
+    }
+    .title-rule{
+      margin-top:24px !important;
+    }
+
     @media (max-width: 900px){
       .hero-copy{
         width:min(100% - 44px,var(--maxw));
@@ -99,7 +179,6 @@
       </div>
 
       <div class="hero-copy reveal">
-        <p class="kicker">明治大学　農学部　農学科</p>
         <h1 class="home-title">農業は<br>生き物が<br>支えている</h1>
         <div class="title-rule" aria-hidden="true"></div>
         <p class="home-lead">植物・動物・微生物・環境がつくる関係性を読み解き、<br>持続可能な農業生態系の理解と応用を目指します。</p>
