@@ -7,6 +7,33 @@
   <meta name="description" content="明治大学農学部農学科 アグロエコロジー研究室のウェブサイトです。" />
   <meta name="format-detection" content="telephone=no,email=no,address=no">
   <link rel="stylesheet" href="/website/assets/css/style.css" />
+  <style>
+    /* Top-page only fixes requested in the screenshot */
+    .site-header .header__row{overflow:hidden;}
+    .site-header .brand{min-height:76px;overflow:hidden;}
+    .site-header .brand__logoWrap{
+      width:64px !important;
+      height:64px !important;
+      max-width:64px !important;
+      max-height:64px !important;
+      overflow:hidden !important;
+      border-left:4px solid var(--concept);
+      border-bottom:4px solid var(--sub);
+    }
+    .site-header .brand__logo{
+      width:100% !important;
+      height:100% !important;
+      max-width:100% !important;
+      max-height:100% !important;
+      object-fit:contain !important;
+      display:block !important;
+      padding:5px !important;
+    }
+    .home-hero .hero-copy{padding-left:0;}
+    .home-hero .kicker,
+    .home-hero .title-rule{display:none !important;}
+    .home-title{margin-top:0;}
+  </style>
 </head>
 <body>
   <div id="site-header"></div>
@@ -29,9 +56,7 @@
       </div>
 
       <div class="hero-copy reveal">
-        <p class="kicker">明治大学　農学部　農学科</p>
         <h1 class="home-title">農業は<br>生き物が<br>支えている</h1>
-        <div class="title-rule" aria-hidden="true"></div>
         <p class="home-lead">植物・動物・微生物・環境がつくる関係性を読み解き、<br>持続可能な農業生態系の理解と応用を目指します。</p>
         <div class="hero-actions">
           <a class="btn btn--primary" href="/website/researches/">研究を見る</a>
