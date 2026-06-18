@@ -74,7 +74,7 @@ main.container{padding:56px 0 82px}
   box-shadow:0 10px 24px rgba(6,40,24,.16);
   display:grid;place-items:center;flex:0 0 auto;
 }
-.brand__logo{width:100%;height:100%;object-fit:cover;display:block}
+.brand__logo{width:100%;height:100%;object-fit:contain;display:block}
 .brand__text{display:flex;flex-direction:column;line-height:1.16}
 .brand__lab{font-size:20px;font-weight:850;letter-spacing:.01em;color:var(--green-900)}
 .brand__univ{font-size:13px;color:var(--text);font-weight:500}
