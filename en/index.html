@@ -11,36 +11,115 @@
 <body>
   <div id="site-header"></div>
 
-  <main class="container">
-    <section class="home-hero">
-      <div class="hero-copy reveal">
-        <p class="kicker">Department of Agriculture, Meiji University</p>
-        <h1 class="home-title">Biodiversity<br>sustains<br>agriculture.</h1>
-        <div class="title-rule" aria-hidden="true"></div>
-        <p class="home-lead">We study relationships among plants, fungi, microbes, and insects to understand and apply sustainable agroecosystems.</p>
-        <div class="hero-actions"><a class="btn btn--primary" href="/website/en/researches/">View research</a><a class="btn btn--ghost" href="/website/en/contact/">Contact us</a></div>
+  <main class="home-main">
+    <section class="tune-hero" aria-label="Agroecology Lab home">
+      <div class="slideshow tune-slideshow js-slideshow" data-interval="5600" aria-label="Lab photo slideshow">
+        <div class="slide is-active">
+          <img src="/website/assets/img/hero.jpg" alt="Agricultural landscape">
+          <div class="slide__caption"><div class="slide__label">Research field</div><h2 class="slide__title">Understanding agroecosystems</h2></div>
+        </div>
+        <div class="slide">
+          <img src="/website/assets/img/260518.jpg" alt="Field visit at Kurokawa Farm">
+          <div class="slide__caption"><div class="slide__label">Field visit</div><h2 class="slide__title">Questions from the field</h2></div>
+        </div>
+        <div class="slide">
+          <img src="/website/assets/img/260511.jpg" alt="Planting seedlings in a field">
+          <div class="slide__caption"><div class="slide__label">Lab activity</div><h2 class="slide__title">Design, grow, and measure</h2></div>
+        </div>
+        <div class="slide">
+          <img src="/website/assets/img/260424.jpg" alt="Campus field preparation">
+          <div class="slide__caption"><div class="slide__label">Campus field</div><h2 class="slide__title">Everyday fieldwork</h2></div>
+        </div>
+        <button class="slide-btn slide-btn--prev" type="button" data-slide-prev aria-label="Previous photo">‹</button>
+        <button class="slide-btn slide-btn--next" type="button" data-slide-next aria-label="Next photo">›</button>
+        <div class="slide-dots" role="tablist" aria-label="Select photo">
+          <button class="slide-dot is-active" type="button" data-slide-to="0" aria-label="Photo 1" aria-selected="true"></button>
+          <button class="slide-dot" type="button" data-slide-to="1" aria-label="Photo 2" aria-selected="false"></button>
+          <button class="slide-dot" type="button" data-slide-to="2" aria-label="Photo 3" aria-selected="false"></button>
+          <button class="slide-dot" type="button" data-slide-to="3" aria-label="Photo 4" aria-selected="false"></button>
+        </div>
       </div>
-      <div class="hero-side reveal">
 
-<div class="slideshow slideshow--home js-slideshow" data-interval="5200" aria-label="Lab photo slideshow">
-  <div class="slide is-active"><img src="/website/assets/img/hero.jpg" alt="Agricultural landscape"><div class="slide__caption"><div class="slide__label">Research field</div><h2 class="slide__title">Understanding rice-field ecosystems</h2><p class="slide__text">Biological interactions support productive agriculture.</p></div></div>
-  <div class="slide"><img src="/website/assets/img/260518.jpg" alt="Field visit"><div class="slide__caption"><div class="slide__label">Field visit</div><h2 class="slide__title">Starting from real-world questions</h2><p class="slide__text">We study links among fields, plants, and microbes.</p></div></div>
-  <div class="slide"><img src="/website/assets/img/260511.jpg" alt="Planting seedlings"><div class="slide__caption"><div class="slide__label">Lab activity</div><h2 class="slide__title">Design, cultivate, and measure</h2><p class="slide__text">We combine observation, experiments, and data analysis.</p></div></div>
-  <div class="slide"><img src="/website/assets/img/260424.jpg" alt="Campus field preparation"><div class="slide__caption"><div class="slide__label">Campus field</div><h2 class="slide__title">A nearby field as a research site</h2><p class="slide__text">We share our lab activities and research process.</p></div></div>
-  <button class="slide-btn slide-btn--prev" type="button" data-slide-prev aria-label="Previous photo">‹</button>
-  <button class="slide-btn slide-btn--next" type="button" data-slide-next aria-label="Next photo">›</button>
-  <div class="slide-dots" role="tablist" aria-label="Choose a photo"><button class="slide-dot is-active" type="button" data-slide-to="0" aria-label="Photo 1" aria-selected="true"></button><button class="slide-dot" type="button" data-slide-to="1" aria-label="Photo 2" aria-selected="false"></button><button class="slide-dot" type="button" data-slide-to="2" aria-label="Photo 3" aria-selected="false"></button><button class="slide-dot" type="button" data-slide-to="3" aria-label="Photo 4" aria-selected="false"></button></div>
-</div>
+      <div class="tune-hero__content">
+        <div class="tune-hero__inner">
+          <h1 class="tune-hero__title">Agroecology</h1>
+          <p class="tune-hero__sub">Agriculture is<br>supported by life</p>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">Scroll</div>
+      <div class="tune-hero__meta">Department of Agriculture, Meiji University</div>
+    </section>
 
-        <div class="hero-stats">
-          <a class="stat-card" href="/website/en/researches/"><span class="stat-icon">⚗</span><span><span class="stat-value">4</span><span class="stat-label">Research themes</span><span class="stat-note">Applying ecological knowledge to agriculture</span></span></a>
-          <a class="stat-card" href="/website/en/members/"><span class="stat-icon">▣</span><span><span class="stat-value">9</span><span class="stat-label">Students</span><span class="stat-note">Undergraduate and graduate members</span></span></a>
-          <a class="stat-card" href="/website/en/news/"><span class="stat-icon">▦</span><span><span class="stat-value" style="font-size:24px;">2026.04.01</span><span class="stat-label">Latest news</span><span class="stat-note">Nine third-year students joined the lab</span></span></a>
+    <section class="home-story reveal">
+      <div class="home-story__grid">
+        <div class="story-text">
+          <p>Agricultural fields are not only places for growing crops.</p>
+          <p>Plants, fungi, microbes, insects, soil, and the surrounding environment interact and change over time.</p>
+          <p>The Agroecology Lab studies these hidden relationships and applies ecological knowledge to sustainable agriculture.</p>
+          <p>We observe, cultivate, measure, and analyze. Through fieldwork and experiments, we explore how living organisms support agricultural systems.</p>
+        </div>
+        <figure class="story-photo no-save">
+          <img src="/website/assets/img/260511.jpg" alt="Field research activity">
+        </figure>
+      </div>
+    </section>
+
+    <section class="home-info reveal" aria-label="Latest information">
+      <div class="home-info__inner">
+        <h2 class="home-info__title">Information</h2>
+        <div class="info-list">
+          <a class="info-row" href="/website/en/news/">
+            <span class="info-date">2026.04.01</span>
+            <span class="info-cat">NEWS</span>
+            <span class="info-text">Nine third-year students joined the lab.</span>
+          </a>
+          <a class="info-row" href="/website/en/gallery/">
+            <span class="info-date">2026.05.18</span>
+            <span class="info-cat">GALLERY</span>
+            <span class="info-text">We visited Kurokawa Farm.</span>
+          </a>
+          <a class="info-row" href="/website/en/gallery/">
+            <span class="info-date">2026.05.11</span>
+            <span class="info-cat">GALLERY</span>
+            <span class="info-text">We planted seedlings in the field on Ikuta Campus.</span>
+          </a>
+        </div>
+        <a class="info-link" href="/website/en/news/">View all news</a>
+      </div>
+    </section>
+
+    <section class="home-research-band reveal" aria-label="Research overview">
+      <img src="/website/assets/img/260518.jpg" alt="Field research activity">
+      <div class="cross-grid" aria-hidden="true"></div>
+      <div class="home-research-band__word" aria-hidden="true">AGROECOLOGY</div>
+      <div class="home-research-band__content">
+        <h2>Turning ecological knowledge into agricultural strength</h2>
+        <p>We study interactions among organisms and the environment to understand and utilize biological functions that support sustainable agriculture.</p>
+        <a class="btn" href="/website/en/researches/">Explore research</a>
+      </div>
+    </section>
+
+    <section class="home-cards reveal">
+      <div class="home-cards__inner">
+        <div class="home-card-grid">
+          <article class="card card--sharp">
+            <span class="tag">Symbiosis</span>
+            <h3 class="card-title">Plant–microbe symbiosis</h3>
+            <p class="card-text">We study how mycorrhizal fungi and rhizosphere microbes support plant nutrition and stress responses.</p>
+          </article>
+          <article class="card card--sharp">
+            <span class="tag">Agroecology</span>
+            <h3 class="card-title">Biodiversity in agriculture</h3>
+            <p class="card-text">We examine how microbial, insect, and plant interactions contribute to the stability and resilience of agroecosystems.</p>
+          </article>
+          <article class="card card--sharp">
+            <span class="tag">Data-driven</span>
+            <h3 class="card-title">Reading hidden ecosystems</h3>
+            <p class="card-text">We integrate DNA, omics, and environmental data to visualize biological functions that are difficult to observe directly.</p>
+          </article>
         </div>
       </div>
     </section>
-    <section class="latest-strip reveal"><div class="latest-icon">⌁</div><div><div class="latest-label">Latest update</div><div class="latest-date">2026.04.01</div></div><div class="latest-divider"></div><div class="latest-text">Nine third-year students joined the lab.</div><a class="latest-link" href="/website/en/news/">View all news　›</a></section>
-    <section class="section reveal"><div class="section-head"><div><p class="section-kicker">Research</p><h2 class="section-title">Turning ecological knowledge into agricultural insight</h2><p class="section-lead">We study interactions among plants, microbes, mycorrhizal fungi, and insects to understand and utilize biological functions that support sustainable agriculture.</p></div><a class="btn btn--small" href="/website/en/researches/">Learn more</a></div><div class="grid grid-3"><article class="card card--sharp"><span class="tag">Symbiosis</span><h3 class="card-title">Understanding plant–microbe symbioses</h3><p class="card-text">We study how mycorrhizal fungi and rhizosphere microbes support plant nutrient acquisition and stress responses.</p></article><article class="card card--sharp"><span class="tag">Agroecology</span><h3 class="card-title">Applying biodiversity to agriculture</h3><p class="card-text">We examine how interactions among microbes, insects, and plants contribute to agroecosystem stability and resilience.</p></article><article class="card card--sharp"><span class="tag">Data-driven</span><h3 class="card-title">Reading hidden ecosystems through data</h3><p class="card-text">We integrate DNA, omics, and environmental data to visualize biological functions in ecosystems.</p></article></div></section>
   </main>
 
   <div id="site-footer"></div>
