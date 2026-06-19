@@ -915,3 +915,10 @@ main.home-main > .home-portfolio{
 
 /* Fail-safe: content remains visible even if the reveal script is delayed. */
 .reveal{opacity:1 !important;transform:none !important;}
+
+/* === Topics cards: hover accent color === */
+.card--sharp:hover,
+.card--sharp:focus-within{
+  border-left-color:var(--sub) !important;
+}
+
