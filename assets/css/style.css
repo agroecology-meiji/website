@@ -797,7 +797,8 @@ main.home-main {
 /* Shared layout */
 .section {
   position: relative;
-  margin: 0 0 80px;
+  margin-top: 0;
+  margin-bottom: 80px;
 }
 
 .section:last-child {
