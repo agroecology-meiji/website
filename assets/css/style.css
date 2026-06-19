@@ -649,3 +649,269 @@ main.home-main{padding:0 0 92px;overflow:hidden}
     }
 
   
+/* =========================================================
+   2026-06-19 CONSOLIDATED FINAL OVERRIDES
+   These rules intentionally live at the end of the shared CSS
+   so the same header/top-page corrections apply to all pages.
+   ========================================================= */
+
+/* Shared header: white background, contained logo, no clipping. */
+.site-header{
+  position:sticky !important;
+  top:0 !important;
+  z-index:1000 !important;
+  background:var(--white) !important;
+  color:var(--green-900) !important;
+  border-bottom:4px solid var(--concept) !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+}
+.site-header .header__row{
+  min-height:78px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:24px !important;
+  overflow:visible !important;
+}
+.site-header .brand{
+  height:78px !important;
+  min-width:270px !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  padding:0 !important;
+  color:var(--green-900) !important;
+  overflow:visible !important;
+}
+.site-header .brand:hover{color:var(--green-900) !important;}
+.site-header .brand__logoWrap{
+  width:54px !important;
+  height:64px !important;
+  flex:0 0 54px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+  clip-path:none !important;
+}
+.site-header .brand__logoWrap img,
+.site-header .brand__logo{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:54px !important;
+  max-height:64px !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  padding:0 !important;
+  margin:0 !important;
+  transform:none !important;
+  clip-path:none !important;
+  filter:none !important;
+}
+.site-header .brand__text{
+  border-left:1px solid var(--concept) !important;
+  padding-left:14px !important;
+  color:var(--green-900) !important;
+}
+.site-header .brand__lab{
+  color:var(--green-900) !important;
+  font-size:22px !important;
+  line-height:1.05 !important;
+  font-weight:950 !important;
+}
+.site-header .brand__univ{
+  color:var(--text) !important;
+  font-size:13px !important;
+  line-height:1.2 !important;
+  font-weight:800 !important;
+}
+.site-header .header__actions{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+}
+.site-header .site-nav{background:transparent !important;box-shadow:none !important;}
+.site-header .nav-list{
+  display:flex !important;
+  align-items:stretch !important;
+  gap:0 !important;
+  list-style:none !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:1px solid var(--line) !important;
+  background:transparent !important;
+}
+.site-header .nav-list a{
+  min-height:46px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:10px 18px !important;
+  color:var(--green-900) !important;
+  background:transparent !important;
+  border-right:1px solid var(--line) !important;
+  border-bottom:0 !important;
+  font-weight:950 !important;
+  font-size:14px !important;
+  white-space:nowrap !important;
+}
+.site-header .nav-list li:last-child a{border-right:0 !important;}
+.site-header .nav-list a:hover,
+.site-header .nav-list a.active{
+  color:var(--green-900) !important;
+  background:rgba(156,201,110,.18) !important;
+}
+.site-header .lang-pill{
+  width:52px !important;
+  height:52px !important;
+  display:grid !important;
+  place-items:center !important;
+  background:var(--green-900) !important;
+  color:var(--white) !important;
+  border:1px solid var(--green-900) !important;
+  font-weight:950 !important;
+}
+.site-header .lang-pill:hover{background:var(--concept) !important;color:var(--green-900) !important;}
+.site-header .nav-toggle{
+  color:var(--green-900) !important;
+  border-color:var(--line-strong) !important;
+  background:transparent !important;
+}
+
+/* Top page hero: inherit all index-only corrections in shared CSS. */
+.home-hero{
+  min-height:690px !important;
+  place-items:center start !important;
+  background:var(--green-900) !important;
+}
+.home-hero::before{
+  background:
+    linear-gradient(180deg,rgba(6,40,24,.10) 0%,rgba(6,40,24,.22) 56%,rgba(6,40,24,.42) 100%),
+    linear-gradient(90deg,rgba(6,40,24,.38),rgba(6,40,24,.08) 58%,rgba(6,40,24,.22)) !important;
+}
+.home-hero .slide img{
+  filter:saturate(1.08) contrast(1.02) brightness(1.13) !important;
+}
+.hero-copy{
+  width:min(760px,calc(100% - 88px)) !important;
+  margin-left:max(150px,calc((100vw - var(--maxw)) / 2 + 95px)) !important;
+  margin-right:auto !important;
+  text-align:left !important;
+  padding:90px 0 118px !important;
+}
+.hero-copy .kicker,
+.hero-copy .kicker::before,
+.hero-copy .kicker::after,
+.kicker,
+.kicker::before,
+.kicker::after{
+  display:none !important;
+}
+.home-title{
+  max-width:760px !important;
+  margin:0 !important;
+  text-align:left !important;
+  color:#fff !important;
+  font-size:clamp(64px,8vw,118px) !important;
+  line-height:1.10 !important;
+  letter-spacing:.035em !important;
+  font-weight:950 !important;
+  text-shadow:0 18px 44px rgba(0,0,0,.30) !important;
+}
+.title-rule{
+  width:112px !important;
+  height:4px !important;
+  margin:28px 0 24px !important;
+  background:linear-gradient(90deg,var(--sub) 0 35%,var(--concept) 35% 72%,var(--sub) 72% 100%) !important;
+  box-shadow:none !important;
+}
+.home-lead{
+  max-width:690px !important;
+  margin:0 !important;
+  text-align:left !important;
+  color:rgba(255,255,255,.96) !important;
+  font-size:18px !important;
+  line-height:2.0 !important;
+  font-weight:850 !important;
+}
+.hero-actions{
+  justify-content:flex-start !important;
+  gap:14px !important;
+}
+.hero-actions .btn--ghost{
+  background:transparent !important;
+  border-color:transparent !important;
+  box-shadow:none !important;
+  color:#fff !important;
+}
+.hero-actions .btn--ghost:hover,
+.hero-actions .btn--ghost:focus-visible{
+  background:rgba(255,255,255,.08) !important;
+  border-color:transparent !important;
+  color:#fff !important;
+}
+
+/* Aligned lower top-page sections. */
+main.home-main > .home-info,
+main.home-main > .home-portfolio{
+  width:min(var(--maxw),calc(100% - 44px)) !important;
+  max-width:var(--maxw) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+.home-info .latest-strip,
+.home-portfolio .section-head,
+.home-portfolio .portfolio-grid{
+  width:100% !important;
+  max-width:100% !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  left:auto !important;
+  right:auto !important;
+  transform:none !important;
+  box-sizing:border-box !important;
+}
+
+@media (max-width:1100px){
+  .site-header .brand{min-width:230px !important;}
+  .site-header .nav-list a{padding-inline:12px !important;font-size:13px !important;}
+  .hero-copy{margin-left:64px !important;width:min(760px,calc(100% - 96px)) !important;}
+}
+@media (max-width:900px){
+  .site-header .header__row{min-height:70px !important;}
+  .site-header .brand{height:70px !important;min-width:0 !important;}
+  .site-header .brand__logoWrap{width:44px !important;height:54px !important;flex-basis:44px !important;}
+  .site-header .brand__logoWrap img,.site-header .brand__logo{max-width:44px !important;max-height:54px !important;}
+  .site-header .nav-toggle{display:grid !important;place-items:center !important;}
+  .site-header .site-nav{display:none !important;position:absolute !important;top:100% !important;left:0 !important;right:0 !important;background:var(--white) !important;border-bottom:1px solid var(--line) !important;}
+  .site-header .site-nav.is-open{display:block !important;}
+  .site-header .nav-list{width:min(var(--maxw),calc(100% - 44px)) !important;margin:0 auto !important;padding:12px 0 18px !important;display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:8px !important;border:0 !important;}
+  .site-header .nav-list a{border:1px solid var(--line) !important;padding:12px 14px !important;}
+  .hero-copy{width:min(100% - 44px,var(--maxw)) !important;margin-inline:auto !important;padding:82px 0 100px !important;}
+  .home-title{font-size:clamp(52px,14vw,78px) !important;}
+}
+@media (max-width:560px){
+  .site-header .brand__text{padding-left:10px !important;}
+  .site-header .brand__lab{font-size:18px !important;}
+  .site-header .brand__univ{display:none !important;}
+  .site-header .lang-pill{width:46px !important;height:46px !important;}
+  .home-hero{min-height:590px !important;}
+  .home-title{font-size:clamp(44px,16vw,64px) !important;line-height:1.12 !important;}
+  .home-lead{font-size:15px !important;line-height:1.85 !important;}
+  main.home-main > .home-info,
+  main.home-main > .home-portfolio{width:min(var(--maxw),calc(100% - 28px)) !important;}
+}
+
+/* Fail-safe: content remains visible even if the reveal script is delayed. */
+.reveal{opacity:1 !important;transform:none !important;}
