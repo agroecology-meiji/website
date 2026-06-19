@@ -195,6 +195,62 @@
         height:48px !important;
       }
     }
+
+
+    /* 2026-06-19 alignment fix: Information と Research fields の左右端を同じ縦ラインに揃える */
+    main.home-main > .home-info,
+    main.home-main > .home-portfolio{
+      width:min(var(--maxw), calc(100% - 44px)) !important;
+      max-width:var(--maxw) !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+      padding-left:0 !important;
+      padding-right:0 !important;
+    }
+    main.home-main > .home-info{
+      margin-bottom:74px !important;
+    }
+    main.home-main > .home-portfolio{
+      margin-bottom:0 !important;
+    }
+    .home-info .latest-strip,
+    .home-portfolio .section-head,
+    .home-portfolio .portfolio-grid{
+      width:100% !important;
+      max-width:100% !important;
+      margin-left:0 !important;
+      margin-right:0 !important;
+      transform:none !important;
+      left:auto !important;
+      right:auto !important;
+    }
+    .home-portfolio .section-head > div{
+      min-width:0 !important;
+    }
+    .home-portfolio .section-kicker,
+    .home-portfolio .section-title{
+      margin-left:0 !important;
+      padding-left:0 !important;
+      transform:none !important;
+    }
+    .home-portfolio .portfolio-grid{
+      overflow:hidden !important;
+      box-sizing:border-box !important;
+    }
+
+    @media (max-width: 900px){
+      main.home-main > .home-info,
+      main.home-main > .home-portfolio{
+        width:min(var(--maxw), calc(100% - 44px)) !important;
+      }
+    }
+    @media (max-width: 560px){
+      main.home-main > .home-info,
+      main.home-main > .home-portfolio{
+        width:min(var(--maxw), calc(100% - 28px)) !important;
+      }
+    }
+
   </style>
 </head>
 <body>
