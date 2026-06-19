@@ -251,6 +251,77 @@
       }
     }
 
+
+    /* FINAL logo containment fix.
+       Cause of previous failure: the same page contained several conflicting
+       .brand__logoWrap rules, and the final rule forced the non-square logo into
+       a small square box with overflow clipping. This override uses max-height /
+       max-width instead of clipping, so the full logo stays inside the header. */
+    .site-header,
+    .site-header .header__row,
+    .site-header .brand{
+      overflow:visible !important;
+    }
+    .site-header .header__row{
+      min-height:74px !important;
+      align-items:center !important;
+    }
+    .site-header .brand{
+      height:74px !important;
+      padding:0 !important;
+      align-items:center !important;
+    }
+    .site-header .brand__logoWrap{
+      width:42px !important;
+      height:52px !important;
+      flex:0 0 42px !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      overflow:visible !important;
+      padding:0 !important;
+      margin:0 !important;
+      background:transparent !important;
+      border:0 !important;
+      box-shadow:none !important;
+      clip-path:none !important;
+    }
+    .site-header .brand__logoWrap img,
+    .site-header .brand__logo{
+      display:block !important;
+      width:auto !important;
+      height:auto !important;
+      max-width:42px !important;
+      max-height:52px !important;
+      min-width:0 !important;
+      min-height:0 !important;
+      object-fit:contain !important;
+      object-position:center center !important;
+      padding:0 !important;
+      margin:0 !important;
+      transform:none !important;
+      clip-path:none !important;
+    }
+
+    @media (max-width: 900px){
+      .site-header .header__row{
+        min-height:68px !important;
+      }
+      .site-header .brand{
+        height:68px !important;
+      }
+      .site-header .brand__logoWrap{
+        width:38px !important;
+        height:48px !important;
+        flex-basis:38px !important;
+      }
+      .site-header .brand__logoWrap img,
+      .site-header .brand__logo{
+        max-width:38px !important;
+        max-height:48px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
