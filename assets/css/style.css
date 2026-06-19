@@ -922,3 +922,8 @@ main.home-main > .home-portfolio{
   border-left-color:var(--sub) !important;
 }
 
+
+/* === News cards: hide category tags on Japanese and English news pages === */
+.news-card .tag{
+  display:none !important;
+}
