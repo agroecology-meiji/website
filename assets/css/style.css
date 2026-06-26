@@ -896,70 +896,73 @@ main.home-main {
   margin: .35em 0;
 }
 
-/* Current student projects */
-.project-grid {
+/* Home perspectives */
+.home-perspectives {
+  width: min(var(--maxw), calc(100% - 44px));
+  margin-inline: auto;
+}
+
+.perspective-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
   width: 100%;
 }
 
-.project-card {
+.perspective-card {
   position: relative;
-  min-height: 220px;
+  min-height: 280px;
+  padding: 34px 28px 30px;
   overflow: hidden;
-  padding: 28px 28px 30px;
   background: rgba(255, 255, 255, .97);
   border: 1px solid var(--line-strong);
-  border-top: 5px solid var(--concept);
+  border-top: 6px solid var(--concept);
   box-shadow: var(--shadow-sm);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-.project-card:nth-child(3n + 2) {
+.perspective-card:nth-child(even) {
   border-top-color: var(--sub);
 }
 
-.project-card:nth-child(3n) {
-  border-top-color: var(--green-700);
-}
-
-.project-card:hover {
+.perspective-card:hover {
   border-color: rgba(6, 40, 24, .30);
   box-shadow: var(--shadow);
   transform: translateY(-4px);
 }
 
-.project-number {
+.perspective-number {
   display: block;
-  margin-bottom: 26px;
-  color: var(--green-700);
-  font-size: 13px;
+  margin-bottom: 38px;
+  color: rgba(6, 40, 24, .12);
+  font-size: 48px;
   font-weight: 950;
-  letter-spacing: .16em;
   line-height: 1;
 }
 
-.project-category {
-  display: inline-flex;
-  margin: 0;
-  padding: 5px 9px;
-  color: var(--green-800);
-  background: rgba(156, 201, 110, .16);
-  border: 1px solid rgba(21, 95, 53, .16);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .04em;
-  line-height: 1.35;
+.perspective-label {
+  margin: 0 0 8px;
+  color: var(--green-700);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .13em;
+  text-transform: uppercase;
 }
 
-.project-card h3 {
-  margin: 15px 0 0;
+.perspective-card h3 {
+  margin: 0 0 12px;
   color: var(--green-900);
-  font-size: 18px;
-  font-weight: 900;
-  line-height: 1.65;
-  letter-spacing: -.015em;
+  font-size: 21px;
+  font-weight: 950;
+  line-height: 1.45;
+}
+
+.perspective-card > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
 }
 
 /* Slideshow */
@@ -1204,40 +1207,69 @@ main.home-main {
 }
 
 /* Members */
-.member-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
+.faculty-card {
+  display: grid;
+  grid-template-columns: minmax(190px, 250px) minmax(0, 1fr);
+  gap: 42px;
+  align-items: center;
+  max-width: 860px;
+  padding: 34px;
 }
 
-.member-avatar {
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  width: 74px;
-  height: 74px;
-  color: #fff;
-  background: var(--green-900);
-  border-bottom: 5px solid var(--concept);
-  box-shadow: 0 12px 24px rgba(6, 40, 24, .16);
-  font-size: 24px;
-  font-weight: 950;
+.faculty-photo-wrap {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--green-100);
+  border: 1px solid var(--line-strong);
+}
+
+.faculty-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.faculty-profile {
+  padding-right: 20px;
 }
 
 .member-name {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   color: var(--green-900);
   font-size: 22px;
   font-weight: 950;
   line-height: 1.25;
 }
 
+.faculty-profile .member-name {
+  font-size: 30px;
+}
+
 .member-en {
-  margin: 2px 0 10px;
+  margin: 4px 0 14px;
   color: var(--muted);
   font-size: 14px;
   font-weight: 850;
   letter-spacing: .04em;
+}
+
+.member-link {
+  margin: 20px 0 0;
+}
+
+.student-card {
+  min-height: 150px;
+  padding: 30px;
+}
+
+.student-card .tag {
+  margin-bottom: 8px;
+}
+
+.student-card .member-name {
+  margin-top: 10px;
 }
 
 /* Publications */
@@ -1623,7 +1655,7 @@ main.home-main {
     border-right: 1px solid var(--line);
   }
 
-  .project-grid {
+  .perspective-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1694,12 +1726,21 @@ main.home-main {
   .page-visual__label {
     display: none;
   }
+
+  .perspective-card {
+    min-height: 0;
+  }
+
+  .faculty-card {
+    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+    gap: 28px;
+  }
 }
 
 @media (max-width: 640px) {
   .container,
   .home-info,
-  .home-projects {
+  .home-perspectives {
     width: min(100% - 28px, var(--maxw));
   }
 
@@ -1768,24 +1809,14 @@ main.home-main {
   }
 
   .about-list,
-  .project-grid,
+  .perspective-grid,
   .nav-list {
     grid-template-columns: 1fr;
   }
 
 
-  .project-card {
-    min-height: 0;
-    padding: 24px 22px 26px;
-  }
 
-  .project-number {
-    margin-bottom: 20px;
-  }
 
-  .project-card h3 {
-    font-size: 17px;
-  }
 
   .page-title {
     font-size: 48px;
@@ -1805,12 +1836,17 @@ main.home-main {
     padding: 22px;
   }
 
-  .member-card {
-    display: block;
+  .faculty-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .member-avatar {
-    margin-bottom: 14px;
+  .faculty-photo-wrap {
+    max-width: 300px;
+  }
+
+  .faculty-profile {
+    padding-right: 0;
   }
 
   .latest-label {
@@ -1819,5 +1855,31 @@ main.home-main {
 
   .section-title {
     font-size: 30px;
+  }
+
+  .perspective-card {
+    padding: 26px 22px;
+  }
+
+  .perspective-number {
+    margin-bottom: 24px;
+    font-size: 42px;
+  }
+
+  .faculty-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .faculty-photo-wrap {
+    width: min(100%, 280px);
+  }
+
+  .faculty-profile .member-name {
+    font-size: 26px;
+  }
+
+  .student-card {
+    min-height: 0;
   }
 }
