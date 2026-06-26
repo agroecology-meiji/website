@@ -1224,15 +1224,15 @@ main.home-main {
   display: grid;
   grid-template-columns: 160px minmax(0, 1fr);
   gap: 26px;
-  align-items: center;
+  align-items: stretch;
   width: min(100%, 720px);
   padding: 24px;
 }
 
 .faculty-photo-wrap {
   width: 160px;
+  min-height: 200px;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
   background: var(--green-100);
   border: 1px solid var(--line-strong);
 }
@@ -1246,7 +1246,13 @@ main.home-main {
 }
 
 .faculty-profile {
+  display: flex;
   min-width: 0;
+  flex-direction: column;
+}
+
+.faculty-profile .tag {
+  align-self: flex-start;
 }
 
 .member-name {
@@ -1270,7 +1276,8 @@ main.home-main {
 }
 
 .member-link {
-  margin: 20px 0 0;
+  margin: auto 0 0;
+  padding-top: 18px;
 }
 
 .student-card {
@@ -1857,12 +1864,13 @@ main.home-main {
   .faculty-card {
     grid-template-columns: 104px minmax(0, 1fr);
     gap: 16px;
-    align-items: start;
+    align-items: stretch;
     padding: 18px;
   }
 
   .faculty-photo-wrap {
     width: 104px;
+    min-height: 156px;
   }
 
   .faculty-profile .member-name {
@@ -1876,7 +1884,8 @@ main.home-main {
   }
 
   .member-link {
-    margin-top: 14px;
+    margin-top: auto;
+    padding-top: 12px;
   }
 
   .member-link .btn {
@@ -1907,5 +1916,116 @@ main.home-main {
   }
   .student-card {
     min-height: 0;
+  }
+}
+
+
+/* =========================================================
+   Home page: "農業生態系を読み解く視点" visual style
+   Restored to a photo-led horizontal card layout while
+   preserving the current 4 perspective texts.
+   ========================================================= */
+.home-portfolio .portfolio-grid--perspectives {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.home-portfolio .portfolio-grid--perspectives .portfolio-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--green-900);
+  border-right: 1px solid rgba(255, 255, 255, .16);
+  border-bottom: 0;
+}
+
+.home-portfolio .portfolio-grid--perspectives .portfolio-card:last-child {
+  border-right: 0;
+}
+
+.home-portfolio .portfolio-grid--perspectives .portfolio-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center center;
+  flex: 0 0 220px;
+  filter: saturate(1.03) contrast(1.05);
+}
+
+.home-portfolio .portfolio-grid--perspectives .portfolio-caption {
+  position: relative;
+  inset: auto;
+  min-height: 128px;
+  padding: 16px 16px 14px;
+  background: linear-gradient(180deg, rgba(8, 44, 27, .92), rgba(4, 24, 14, .98));
+  justify-content: flex-start;
+}
+
+.home-portfolio .portfolio-grid--perspectives .portfolio-label {
+  margin: 0 0 6px;
+  color: rgba(255, 255, 255, .96);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+
+.home-portfolio .portfolio-grid--perspectives .portfolio-caption h3 {
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 21px;
+  line-height: 1.28;
+}
+
+.home-portfolio .portfolio-grid--perspectives .portfolio-description {
+  margin: 0;
+  color: rgba(255, 255, 255, .84);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1100px) {
+  .home-portfolio .portfolio-grid--perspectives {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-portfolio .portfolio-grid--perspectives .portfolio-card:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .home-portfolio .portfolio-grid--perspectives .portfolio-card:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, .16);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-portfolio .portfolio-grid--perspectives {
+    grid-template-columns: 1fr;
+  }
+
+  .home-portfolio .portfolio-grid--perspectives .portfolio-card {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .16);
+  }
+
+  .home-portfolio .portfolio-grid--perspectives .portfolio-card:last-child {
+    border-bottom: 0;
+  }
+
+  .home-portfolio .portfolio-grid--perspectives .portfolio-card img {
+    height: 190px;
+    flex-basis: 190px;
+  }
+
+  .home-portfolio .portfolio-grid--perspectives .portfolio-caption {
+    min-height: 0;
+    padding: 16px 16px 15px;
+  }
+
+  .home-portfolio .portfolio-grid--perspectives .portfolio-caption h3 {
+    font-size: 18px;
   }
 }
