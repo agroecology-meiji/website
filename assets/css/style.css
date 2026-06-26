@@ -552,7 +552,7 @@ main.home-main {
 
 
 .home-feature-card h3 {
-  margin: 0 0 10px;
+  margin: 0 0 16px;
   color: var(--green-900);
   font-size: 21px;
   font-weight: 950;
@@ -561,11 +561,12 @@ main.home-main {
 }
 
 .home-feature-card p {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 29ch;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  line-height: 1.72;
+  line-height: 1.6;
 }
 
 /* Home sections */
@@ -2193,5 +2194,13 @@ main.home-main {
     font-size: 16px;
     line-height: 1.55;
     white-space: normal;
+  }
+}
+
+
+/* 2026-06-26 top-card copy adjustment */
+@media (max-width: 640px) {
+  .home-feature-card p {
+    max-width: none;
   }
 }
