@@ -1224,15 +1224,15 @@ main.home-main {
   display: grid;
   grid-template-columns: 160px minmax(0, 1fr);
   gap: 26px;
-  align-items: stretch;
+  align-items: center;
   width: min(100%, 720px);
   padding: 24px;
 }
 
 .faculty-photo-wrap {
   width: 160px;
-  min-height: 200px;
   overflow: hidden;
+  aspect-ratio: 3 / 4;
   background: var(--green-100);
   border: 1px solid var(--line-strong);
 }
@@ -1246,13 +1246,7 @@ main.home-main {
 }
 
 .faculty-profile {
-  display: flex;
   min-width: 0;
-  flex-direction: column;
-}
-
-.faculty-profile .tag {
-  align-self: flex-start;
 }
 
 .member-name {
@@ -1276,8 +1270,7 @@ main.home-main {
 }
 
 .member-link {
-  margin: auto 0 0;
-  padding-top: 18px;
+  margin: 20px 0 0;
 }
 
 .student-card {
@@ -1864,13 +1857,12 @@ main.home-main {
   .faculty-card {
     grid-template-columns: 104px minmax(0, 1fr);
     gap: 16px;
-    align-items: stretch;
+    align-items: start;
     padding: 18px;
   }
 
   .faculty-photo-wrap {
     width: 104px;
-    min-height: 156px;
   }
 
   .faculty-profile .member-name {
@@ -1884,8 +1876,7 @@ main.home-main {
   }
 
   .member-link {
-    margin-top: auto;
-    padding-top: 12px;
+    margin-top: 14px;
   }
 
   .member-link .btn {
@@ -1919,6 +1910,69 @@ main.home-main {
   }
 }
 
+/* =========================================================
+   Contact page layout refinement
+   ========================================================= */
+.contact-layout--top {
+  grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
+  align-items: stretch;
+}
+
+.contact-info-card,
+.contact-map-card,
+.contact-card-wide {
+  height: 100%;
+}
+
+.contact-map-card {
+  padding: 16px 16px 12px;
+}
+
+.contact-map-frame {
+  overflow: hidden;
+  background: var(--green-100);
+  border: 1px solid var(--line-strong);
+  aspect-ratio: 16 / 9;
+}
+
+.contact-map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contact-map-link {
+  margin: 10px 2px 0;
+}
+
+.contact-map-link a {
+  color: var(--green-700);
+  font-weight: 850;
+}
+
+.contact-map-link a:hover {
+  color: var(--green-900);
+}
+
+.contact-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.contact-bottom-grid > div {
+  min-width: 0;
+}
+
+.contact-card-wide .contact-heading {
+  margin-bottom: 8px;
+}
+
+.contact-card-wide .contact-separator {
+  margin-top: 26px;
+}
 
 /* =========================================================
    Home page: "農業生態系を読み解く視点" visual style
@@ -1998,6 +2052,17 @@ main.home-main {
 
   .home-portfolio .portfolio-grid--perspectives .portfolio-card:nth-child(-n + 2) {
     border-bottom: 1px solid rgba(255, 255, 255, .16);
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-layout--top,
+  .contact-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-map-card {
+    padding: 16px;
   }
 }
 
