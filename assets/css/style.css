@@ -896,73 +896,86 @@ main.home-main {
   margin: .35em 0;
 }
 
-/* Home perspectives */
-.home-perspectives {
+/* Home research perspectives */
+.home-portfolio {
   width: min(var(--maxw), calc(100% - 44px));
   margin-inline: auto;
 }
 
-.perspective-grid {
+.portfolio-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 0;
   width: 100%;
-}
-
-.perspective-card {
-  position: relative;
-  min-height: 280px;
-  padding: 34px 28px 30px;
   overflow: hidden;
-  background: rgba(255, 255, 255, .97);
   border: 1px solid var(--line-strong);
-  border-top: 6px solid var(--concept);
-  box-shadow: var(--shadow-sm);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-
-.perspective-card:nth-child(even) {
-  border-top-color: var(--sub);
-}
-
-.perspective-card:hover {
-  border-color: rgba(6, 40, 24, .30);
   box-shadow: var(--shadow);
-  transform: translateY(-4px);
 }
 
-.perspective-number {
+.portfolio-card {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  color: #fff;
+  background: var(--green-900);
+  border-right: 1px solid rgba(255, 255, 255, .16);
+}
+
+.portfolio-card:last-child {
+  border-right: 0;
+}
+
+.portfolio-card img {
   display: block;
-  margin-bottom: 38px;
-  color: rgba(6, 40, 24, .12);
-  font-size: 48px;
-  font-weight: 950;
-  line-height: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.02) contrast(1.06);
+  transition: transform .45s ease, opacity .45s ease;
 }
 
-.perspective-label {
+.portfolio-card:hover img,
+.portfolio-card:focus-within img {
+  opacity: .80;
+  transform: scale(1.045);
+}
+
+.portfolio-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 176px;
+  padding: 24px 22px 22px;
+  background: linear-gradient(180deg, transparent, rgba(6, 40, 24, .84) 22%, rgba(6, 40, 24, .98) 58%);
+}
+
+.portfolio-label {
   margin: 0 0 8px;
-  color: var(--green-700);
+  color: var(--concept);
   font-size: 11px;
   font-weight: 950;
-  letter-spacing: .13em;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
 
-.perspective-card h3 {
-  margin: 0 0 12px;
-  color: var(--green-900);
-  font-size: 21px;
+.portfolio-caption h3 {
+  margin: 0 0 8px;
+  color: #fff;
+  font-size: 20px;
   font-weight: 950;
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
-.perspective-card > p:last-child {
+.portfolio-description {
   margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.8;
+  color: rgba(255, 255, 255, .80);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.7;
 }
 
 /* Slideshow */
@@ -1209,16 +1222,17 @@ main.home-main {
 /* Members */
 .faculty-card {
   display: grid;
-  grid-template-columns: minmax(190px, 250px) minmax(0, 1fr);
-  gap: 42px;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 26px;
   align-items: center;
-  max-width: 860px;
-  padding: 34px;
+  width: min(100%, 720px);
+  padding: 24px;
 }
 
 .faculty-photo-wrap {
+  width: 160px;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   background: var(--green-100);
   border: 1px solid var(--line-strong);
 }
@@ -1232,7 +1246,7 @@ main.home-main {
 }
 
 .faculty-profile {
-  padding-right: 20px;
+  min-width: 0;
 }
 
 .member-name {
@@ -1655,8 +1669,12 @@ main.home-main {
     border-right: 1px solid var(--line);
   }
 
-  .perspective-grid {
+  .portfolio-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolio-card {
+    min-height: 340px;
   }
 
   .home-about {
@@ -1727,20 +1745,20 @@ main.home-main {
     display: none;
   }
 
-  .perspective-card {
-    min-height: 0;
+  .faculty-card {
+    grid-template-columns: 145px minmax(0, 1fr);
+    gap: 24px;
   }
 
-  .faculty-card {
-    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
-    gap: 28px;
+  .faculty-photo-wrap {
+    width: 145px;
   }
 }
 
 @media (max-width: 640px) {
   .container,
   .home-info,
-  .home-perspectives {
+  .home-portfolio {
     width: min(100% - 28px, var(--maxw));
   }
 
@@ -1809,7 +1827,7 @@ main.home-main {
   }
 
   .about-list,
-  .perspective-grid,
+  .portfolio-grid,
   .nav-list {
     grid-template-columns: 1fr;
   }
@@ -1837,16 +1855,32 @@ main.home-main {
   }
 
   .faculty-card {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+    padding: 18px;
   }
 
   .faculty-photo-wrap {
-    max-width: 300px;
+    width: 104px;
   }
 
-  .faculty-profile {
-    padding-right: 0;
+  .faculty-profile .member-name {
+    margin-top: 8px;
+    font-size: 21px;
+  }
+
+  .faculty-profile .card-text {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .member-link {
+    margin-top: 14px;
+  }
+
+  .member-link .btn {
+    width: auto;
   }
 
   .latest-label {
@@ -1857,28 +1891,20 @@ main.home-main {
     font-size: 30px;
   }
 
-  .perspective-card {
-    padding: 26px 22px;
+  .portfolio-card {
+    min-height: 320px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .16);
   }
 
-  .perspective-number {
-    margin-bottom: 24px;
-    font-size: 42px;
+  .portfolio-card:last-child {
+    border-bottom: 0;
   }
 
-  .faculty-card {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .portfolio-caption {
+    min-height: 164px;
+    padding: 22px 20px 20px;
   }
-
-  .faculty-photo-wrap {
-    width: min(100%, 280px);
-  }
-
-  .faculty-profile .member-name {
-    font-size: 26px;
-  }
-
   .student-card {
     min-height: 0;
   }
