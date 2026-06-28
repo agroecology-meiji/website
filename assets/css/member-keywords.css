@@ -34,67 +34,60 @@
   min-width: 0;
 }
 
-.student-card--profile .member-name {
-  margin: 0;
+/* Match undergraduate names to the faculty-name typography */
+.student-card--profile .member-name,
+html[lang="en"] .student-card--profile .member-name {
+  margin: 12px 0 0;
   color: var(--green-900);
-  font-size: clamp(28px, 2.7vw, 38px);
+  font-size: 30px;
   font-weight: 950;
-  line-height: 1.08;
-  letter-spacing: -.045em;
+  line-height: 1.25;
+  letter-spacing: normal;
 }
 
-.student-card--profile .member-en {
-  margin: 10px 0 26px;
-  color: rgba(31, 48, 42, .72);
-  font-size: clamp(13px, 1.25vw, 17px);
-  font-weight: 950;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+/* Match undergraduate romanized-name line to the faculty card */
+.student-card--profile .member-en,
+html[lang="en"] .student-card--profile .member-en {
+  margin: 4px 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.4;
+  letter-spacing: .04em;
+  text-transform: none;
 }
 
 .student-keywords {
   margin: 0;
 }
 
+/* Match keyword text to the faculty research-field typography */
+.student-keywords-title,
+.student-keywords-list,
+html[lang="en"] .student-keywords-title,
+html[lang="en"] .student-keywords-list {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 550;
+  line-height: 1.85;
+  letter-spacing: normal;
+}
+
 .student-keywords-title {
-  margin: 0 0 8px;
-  color: rgba(31, 48, 42, .62);
-  font-size: 16px;
-  font-weight: 950;
-  line-height: 1.35;
-  letter-spacing: -.02em;
+  margin-bottom: 2px;
 }
 
 .student-keywords-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px 10px;
+  gap: 0 8px;
   align-items: center;
-  margin: 0;
-  color: rgba(31, 48, 42, .62);
-  font-size: 15px;
-  font-weight: 850;
-  line-height: 1.55;
 }
 
 .student-keyword-separator {
-  color: rgba(31, 48, 42, .44);
-  font-weight: 850;
-}
-
-html[lang="en"] .student-card--profile .member-name {
-  font-size: clamp(22px, 2vw, 30px);
-  letter-spacing: .02em;
-}
-
-html[lang="en"] .student-card--profile .member-en {
-  margin-bottom: 22px;
-  letter-spacing: .04em;
-}
-
-html[lang="en"] .student-keywords-title,
-html[lang="en"] .student-keywords-list {
-  letter-spacing: .01em;
+  color: var(--muted);
+  font-weight: 550;
 }
 
 @media (max-width: 1100px) {
@@ -111,16 +104,9 @@ html[lang="en"] .student-keywords-list {
     font-size: 17px;
   }
 
-  .student-card--profile .member-name {
-    font-size: 28px;
-  }
-
+  .student-card--profile .member-name,
   html[lang="en"] .student-card--profile .member-name {
-    font-size: 22px;
-  }
-
-  .student-keywords-list {
-    font-size: 14px;
+    font-size: 26px;
   }
 }
 
@@ -149,19 +135,10 @@ html[lang="en"] .student-keywords-list {
     font-size: 30px;
   }
 
-  .student-card--profile .member-en {
-    margin: 10px 0 24px;
-    font-size: 16px;
-  }
-
-  .student-keywords-title {
-    margin-bottom: 10px;
-    font-size: 18px;
-  }
-
-  .student-keywords-list {
-    gap: 6px 12px;
-    font-size: 15px;
+  .student-card--profile .member-en,
+  html[lang="en"] .student-card--profile .member-en {
+    margin: 4px 0 14px;
+    font-size: 14px;
   }
 }
 
