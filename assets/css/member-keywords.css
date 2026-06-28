@@ -1,30 +1,31 @@
-/* Member keyword cards */
+/* Member keyword cards: keep the desktop 3-column member grid */
 .student-list {
   display: grid;
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .student-card--profile {
   display: grid;
-  grid-template-columns: 104px minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 56px);
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 20px;
   align-items: start;
-  min-height: 244px;
-  padding: clamp(42px, 5.2vw, 64px) clamp(30px, 5vw, 56px) clamp(34px, 4vw, 46px);
+  min-height: 210px;
+  padding: 30px 26px 26px;
 }
 
 .student-card--profile .tag.student-year {
   display: grid;
   place-items: center;
-  width: 82px;
-  height: 82px;
-  min-height: 82px;
+  width: 62px;
+  height: 62px;
+  min-height: 62px;
   margin: 0;
   padding: 0;
   color: var(--green-900);
   background: rgba(156, 201, 110, .16);
   border: 2px solid rgba(21, 95, 53, .18);
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 950;
   letter-spacing: .04em;
 }
@@ -36,18 +37,18 @@
 .student-card--profile .member-name {
   margin: 0;
   color: var(--green-900);
-  font-size: clamp(34px, 4.3vw, 54px);
+  font-size: clamp(28px, 2.7vw, 38px);
   font-weight: 950;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -.045em;
 }
 
 .student-card--profile .member-en {
-  margin: 16px 0 clamp(36px, 4.6vw, 54px);
+  margin: 10px 0 26px;
   color: rgba(31, 48, 42, .72);
-  font-size: clamp(18px, 2.4vw, 28px);
+  font-size: clamp(13px, 1.25vw, 17px);
   font-weight: 950;
-  letter-spacing: .09em;
+  letter-spacing: .08em;
   text-transform: uppercase;
 }
 
@@ -56,9 +57,9 @@
 }
 
 .student-keywords-title {
-  margin: 0 0 14px;
+  margin: 0 0 8px;
   color: rgba(31, 48, 42, .62);
-  font-size: clamp(20px, 2.6vw, 32px);
+  font-size: 16px;
   font-weight: 950;
   line-height: 1.35;
   letter-spacing: -.02em;
@@ -67,13 +68,13 @@
 .student-keywords-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 22px;
+  gap: 5px 10px;
   align-items: center;
   margin: 0;
   color: rgba(31, 48, 42, .62);
-  font-size: clamp(17px, 2.1vw, 26px);
+  font-size: 15px;
   font-weight: 850;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .student-keyword-separator {
@@ -82,7 +83,13 @@
 }
 
 html[lang="en"] .student-card--profile .member-name {
+  font-size: clamp(22px, 2vw, 30px);
   letter-spacing: .02em;
+}
+
+html[lang="en"] .student-card--profile .member-en {
+  margin-bottom: 22px;
+  letter-spacing: .04em;
 }
 
 html[lang="en"] .student-keywords-title,
@@ -90,12 +97,44 @@ html[lang="en"] .student-keywords-list {
   letter-spacing: .01em;
 }
 
+@media (max-width: 1100px) {
+  .student-card--profile {
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 16px;
+    padding: 26px 22px 24px;
+  }
+
+  .student-card--profile .tag.student-year {
+    width: 54px;
+    height: 54px;
+    min-height: 54px;
+    font-size: 17px;
+  }
+
+  .student-card--profile .member-name {
+    font-size: 28px;
+  }
+
+  html[lang="en"] .student-card--profile .member-name {
+    font-size: 22px;
+  }
+
+  .student-keywords-list {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 760px) {
+  .student-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .student-card--profile {
     grid-template-columns: 78px minmax(0, 1fr);
-    gap: 18px;
+    gap: 20px;
     min-height: 0;
-    padding: 30px 22px 26px;
+    padding: 30px 24px 26px;
   }
 
   .student-card--profile .tag.student-year {
@@ -105,7 +144,8 @@ html[lang="en"] .student-keywords-list {
     font-size: 18px;
   }
 
-  .student-card--profile .member-name {
+  .student-card--profile .member-name,
+  html[lang="en"] .student-card--profile .member-name {
     font-size: 30px;
   }
 
@@ -127,6 +167,20 @@ html[lang="en"] .student-keywords-list {
 
 @media (max-width: 430px) {
   .student-card--profile {
-    grid-template-columns: 1fr;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 14px;
+    padding: 24px 20px 22px;
+  }
+
+  .student-card--profile .tag.student-year {
+    width: 56px;
+    height: 56px;
+    min-height: 56px;
+    font-size: 16px;
+  }
+
+  .student-card--profile .member-name,
+  html[lang="en"] .student-card--profile .member-name {
+    font-size: 27px;
   }
 }
