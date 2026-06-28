@@ -1,12 +1,22 @@
-# Access counter patch
+# JP/EN separated access counter patch
 
-Apply these files on top of the latest website directory.
-
-Changed/added files:
-- `index.html`
-- `en/index.html`
+## Website-side change
+Replace the existing file:
 - `assets/js/access-log.js`
-- `assets/css/style.css`
-- `CLEANUP_REPORT.md`
 
-The hidden counter sends `page=top` to the Google Apps Script Web app when the site is viewed on `agroecology-meiji.github.io`. Local previews do not increment the spreadsheet.
+This update records the top pages separately:
+- Japanese top page -> `page=jp`
+- English top page -> `page=en`
+
+## Apps Script change
+Replace the entire `Code.gs` in Google Apps Script with:
+- `apps-script/Code.gs`
+
+After replacing the script:
+1. Save the Apps Script project.
+2. Run `repairSheet()` once to merge duplicated same-day rows and normalize data.
+3. Deploy a new version of the Web app (`Deploy` -> `Manage deployments` -> edit/pencil -> `New version` -> `Deploy`).
+
+## Notes
+- Existing old rows recorded as `top` are not automatically split into `jp` and `en`, because their origin cannot be distinguished after the fact.
+- `repairSheet()` will merge rows that have the same `date` and `page`.
