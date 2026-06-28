@@ -1,16 +1,17 @@
-# Member keyword font update patch
+# English members page Japanese-name removal patch
 
 Apply these files on top of the current website directory.
 
 Changed files:
-- `members/index.html`
 - `en/members/index.html`
 - `assets/css/member-keywords.css`
+- `README.md`
+- `CLEANUP_REPORT.md`
 
-Updates:
-- Keeps the undergraduate member cards in a 3-column grid on desktop.
-- Keeps the undergraduate member cards in a 1-column grid on mobile.
-- Matches undergraduate names to the faculty-name typography.
-- Matches undergraduate research-keyword text to the faculty research-field typography.
-- Updates the keywords using `keywords2.xlsx`.
-- Adds a query string to the CSS link (`?v=20260629-font`) to reduce browser-cache issues.
+## What changed
+
+- Removed Japanese kanji-name lines from the English members page.
+- This applies to both the faculty card and undergraduate student cards.
+- Kept the Japanese members page unchanged.
+- Kept desktop 3-column undergraduate layout and mobile 1-column layout.
+- Added small English-page spacing rules so the cards remain visually balanced after removing the Japanese-name lines.

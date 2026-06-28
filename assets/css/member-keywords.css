@@ -57,6 +57,16 @@ html[lang="en"] .student-card--profile .member-en {
   text-transform: none;
 }
 
+
+/* English members page: Japanese-name lines are omitted, so keep balanced spacing */
+html[lang="en"] .faculty-profile .member-name {
+  margin-bottom: 14px;
+}
+
+html[lang="en"] .student-card--profile .member-name {
+  margin-bottom: 18px;
+}
+
 .student-keywords {
   margin: 0;
 }
