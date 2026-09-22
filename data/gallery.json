@@ -1,0 +1,21 @@
+{
+  "image": {"max_pixels": 1600, "jpeg_quality": 82, "output_directory": "assets/img/gallery"},
+  "slideshow_count": 3,
+  "items": [
+    {
+      "date": "2026-05-18", "source": "assets/img/260518.jpg", "output": "260518.jpg",
+      "ja": {"date_label": "5月18日", "title": "黒川農場を訪問しました", "summary": "卒業研究の計画について打ち合わせました。", "body": "卒業研究の計画について打ち合わせるため、黒川農場を訪問しました。区画ごとの作付けや管理について、職員の方に詳しく説明して頂くことができました。", "alt": "黒川農場の訪問風景"},
+      "en": {"date_label": "May 18", "title": "Field visit to Kurokawa Farm", "summary": "We discussed plans for undergraduate research.", "body": "We visited Kurokawa Farm to discuss plans for undergraduate research and learned about crop management in each field section.", "alt": "Field visit"}
+    },
+    {
+      "date": "2026-05-11", "source": "assets/img/260511.jpg", "output": "260511.jpg",
+      "ja": {"date_label": "5月11日", "title": "圃場に苗を定植しました", "summary": "3年生全員で話し合って作付けを決めました。", "body": "圃場に苗を定植しました。「何をどのように植えるか」から、3年生全員で話し合って決めました。", "alt": "圃場に苗を定植した様子"},
+      "en": {"date_label": "May 11", "title": "Planting seedlings in the field", "summary": "Students discussed and decided what and how to plant.", "body": "We planted seedlings in the field after discussing what and how to plant with all third-year students.", "alt": "Planting seedlings"}
+    },
+    {
+      "date": "2026-04-24", "source": "assets/img/260424.jpg", "output": "260424.jpg",
+      "ja": {"date_label": "4月24日", "title": "ラボで畑を始めました", "summary": "まずは整備するところからスタートです。", "body": "生田キャンパス内の南圃場を借りて、ラボで畑を始めました。まずは整備するところからスタートです。", "alt": "生田キャンパス内の圃場整備"},
+      "en": {"date_label": "Apr. 24", "title": "Starting our campus field", "summary": "We began by preparing the field.", "body": "We started a lab field on the Ikuta Campus. The first step was to prepare the field.", "alt": "Campus field"}
+    }
+  ]
+}

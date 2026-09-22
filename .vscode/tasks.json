@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "サイト生成",
+      "type": "process",
+      "command": "python3",
+      "args": ["${workspaceFolder}/scripts/site.py", "build"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "group": {"kind": "build", "isDefault": true},
+      "problemMatcher": []
+    },
+    {
+      "label": "プレビュー",
+      "type": "process",
+      "command": "python3",
+      "args": ["${workspaceFolder}/scripts/site.py", "serve", "--port", "8000"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "isBackground": false,
+      "problemMatcher": []
+    },
+    {
+      "label": "公開前チェック",
+      "type": "process",
+      "command": "python3",
+      "args": ["${workspaceFolder}/scripts/site.py", "check"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}
