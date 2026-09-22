@@ -102,8 +102,12 @@ def validate_and_load():
         title = section.get("title")
         if not isinstance(title, dict):
             raise BuildError(f"{label}.title must be an object")
+        kicker = section.get("kicker")
+        if not isinstance(kicker, dict):
+            raise BuildError(f"{label}.kicker must be an object")
         for locale in LOCALES:
             require_text(title.get(locale), f"{label}.title.{locale}")
+            require_text(kicker.get(locale), f"{label}.kicker.{locale}")
         items = section.get("items")
         if not isinstance(items, list) or not items:
             raise BuildError(f"{label}.items must be a non-empty array")
@@ -201,10 +205,11 @@ def publications_block(sections, locale):
         items = [item for item in section["items"] if locale in item.get("locales", list(LOCALES))]
         if not items:
             continue
+        kicker = section["kicker"][locale]
         title = section["title"][locale]
         lines = [
             '        <section class="card pub-section">',
-            f'          <p class="section-kicker">{e(title)}</p>',
+            f'          <p class="section-kicker">{e(kicker)}</p>',
             f'          <h2 class="card-title">{e(title)}</h2>',
             '          <ul class="publication-list">',
         ]

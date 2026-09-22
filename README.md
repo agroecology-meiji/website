@@ -15,7 +15,7 @@
 ## JSON の編集
 
 - ニュース: `data/news.json` の `items` 先頭に追加します。日付は `YYYY-MM-DD`、項目は新しい順です。
-- 業績: `data/publications.json` の該当 `section` に追加します。`html` では `<i>` と HTTPS の `<a>` だけ使用できます。`"locales": ["ja"]` または `["en"]` で表示言語を限定できます。
+- 業績: `data/publications.json` の該当 `section` に追加します。各区分の小見出しは `kicker`、大見出しは `title` で指定します。`html` では `<i>` と HTTPS の `<a>` だけ使用できます。`"locales": ["ja"]` または `["en"]` で表示言語を限定できます。
 - ギャラリー: 元画像を `assets/img/` に置き、`data/gallery.json` の `items` 先頭に追加します。`source` は元画像、`output` は公開用JPEGのファイル名です。`slideshow_count` で先頭から何件をスライドに載せるか指定します。
 
 元画像は保持され、公開用画像が `assets/img/gallery/` に生成されます。
