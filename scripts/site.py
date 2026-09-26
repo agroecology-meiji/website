@@ -150,15 +150,25 @@ def validate_and_load():
         if previous and date > previous:
             raise BuildError("data/gallery.json items must be newest first")
         previous = date
-        source = safe_repo_path(require_text(item.get("source"), f"{label}.source"))
-        if not source.is_file():
-            raise BuildError(f"{label}.source does not exist: {source.relative_to(ROOT)}")
-        output = require_text(item.get("output"), f"{label}.output")
-        if Path(output).name != output or Path(output).suffix.lower() not in (".jpg", ".jpeg"):
-            raise BuildError(f"{label}.output must be a JPEG filename without directories")
-        if output in outputs:
-            raise BuildError(f"Duplicate gallery output: {output}")
-        outputs.add(output)
+        additional_images = item.get("additional_images", [])
+        if not isinstance(additional_images, list):
+            raise BuildError(f"{label}.additional_images must be an array")
+        for image_index, image in enumerate(gallery_images(item)):
+            if not isinstance(image, dict):
+                raise BuildError(f"{label}.additional_images[{image_index - 1}] must be an object")
+            image_label = label if image_index == 0 else f"{label}.additional_images[{image_index - 1}]"
+            source = safe_repo_path(require_text(image.get("source"), f"{image_label}.source"))
+            if not source.is_file():
+                raise BuildError(f"{image_label}.source does not exist: {source.relative_to(ROOT)}")
+            output = require_text(image.get("output"), f"{image_label}.output")
+            if Path(output).name != output or Path(output).suffix.lower() not in (".jpg", ".jpeg"):
+                raise BuildError(f"{image_label}.output must be a JPEG filename without directories")
+            if output in outputs:
+                raise BuildError(f"Duplicate gallery output: {output}")
+            outputs.add(output)
+            if image_index > 0:
+                require_text(image.get("ja_alt"), f"{image_label}.ja_alt")
+                require_text(image.get("en_alt"), f"{image_label}.en_alt")
         for locale in LOCALES:
             copy = item.get(locale)
             if not isinstance(copy, dict):
@@ -232,9 +242,18 @@ def publications_block(sections, locale):
     return "\n\n".join(blocks)
 
 
-def image_url(gallery, item):
+def gallery_images(item):
+    primary = {"source": item["source"], "output": item["output"]}
+    return [primary] + item.get("additional_images", [])
+
+
+def gallery_image_alt(item, image, image_index, locale):
+    return item[locale]["alt"] if image_index == 0 else image[f"{locale}_alt"]
+
+
+def image_url(gallery, image):
     directory = gallery["_output_dir"].relative_to(ROOT).as_posix()
-    return f"{PUBLIC_BASE}/{directory}/{item['output']}"
+    return f"{PUBLIC_BASE}/{directory}/{image['output']}"
 
 
 def gallery_slideshow_block(gallery, locale):
@@ -275,7 +294,20 @@ def gallery_log_block(gallery, locale):
         ]
         for item in items:
             copy = item[locale]
-            lines.append(f'        <article class="gallery-entry"><div class="gallery-date">{e(copy["date_label"])}</div><div class="gallery-entry__text"><p>{e(copy["body"])}</p></div><img class="gallery-entry__img no-save" src="{e(image_url(gallery, item))}" alt="{e(copy["alt"])}" draggable="false"></article>')
+            images = gallery_images(item)
+            multiple_class = " gallery-entry__images--multiple" if len(images) > 1 else ""
+            image_tags = "".join(
+                f'<img class="gallery-entry__img no-save" src="{e(image_url(gallery, image))}" '
+                f'alt="{e(gallery_image_alt(item, image, image_index, locale))}" draggable="false">'
+                for image_index, image in enumerate(images)
+            )
+            lines.append(
+                f'        <article class="gallery-entry">'
+                f'<div class="gallery-date">{e(copy["date_label"])}</div>'
+                f'<div class="gallery-entry__text"><p>{e(copy["body"])}</p></div>'
+                f'<div class="gallery-entry__images{multiple_class}">{image_tags}</div>'
+                f'</article>'
+            )
         lines += ["      </div>", "    </section>"]
         sections.append("\n".join(lines))
     return "\n\n".join(sections)
@@ -368,8 +400,8 @@ def generate_images(gallery):
     output_dir = gallery["_output_dir"]
     output_dir.mkdir(parents=True, exist_ok=True)
     settings = gallery["image"]
-    for item in gallery["items"]:
-        source, destination = safe_repo_path(item["source"]), output_dir / item["output"]
+    for image in (image for item in gallery["items"] for image in gallery_images(item)):
+        source, destination = safe_repo_path(image["source"]), output_dir / image["output"]
         # Quick Look may finish writing just after its process exits. Keep its
         # scratch directory outside the repository so no temporary artifact
         # can enter a commit even in that edge case.
@@ -443,20 +475,24 @@ def build():
     news, publications, gallery = validate_and_load()
     generate_images(gallery)
     changed = html_updates(news, publications, gallery, True)
-    print(f"Site generated: {len(changed)} HTML file(s) updated, {len(gallery['items'])} image(s) optimized.")
+    image_count = sum(len(gallery_images(item)) for item in gallery["items"])
+    print(f"Site generated: {len(changed)} HTML file(s) updated, {image_count} image(s) optimized.")
 
 
 def check():
     news, publications, gallery = validate_and_load()
     errors = [f"Generated content is stale: {path} (run site generation)" for path in html_updates(news, publications, gallery, False)]
     source_hashes, output_hashes = {}, {}
-    expected_outputs = {item["output"] for item in gallery["items"]}
+    all_images = [image for item in gallery["items"] for image in gallery_images(item)]
+    expected_outputs = {image["output"] for image in all_images}
     if gallery["_output_dir"].is_dir():
         for child in gallery["_output_dir"].iterdir():
+            if child.name == ".DS_Store" or child.name.startswith("._"):
+                continue
             if child.name not in expected_outputs:
                 errors.append(f"Unexpected file in generated image directory: {child.relative_to(ROOT)}")
-    for item in gallery["items"]:
-        path = gallery["_output_dir"] / item["output"]
+    for image in all_images:
+        path = gallery["_output_dir"] / image["output"]
         if not path.is_file():
             errors.append(f"Missing generated gallery image: {path.relative_to(ROOT)}")
             continue
@@ -465,7 +501,7 @@ def check():
             errors.append(f"{path.relative_to(ROOT)} is {width}x{height}, above the configured maximum")
         if metadata:
             errors.append(f"{path.relative_to(ROOT)} contains metadata segments: {metadata}")
-        source_hash = hashlib.sha256(safe_repo_path(item["source"]).read_bytes()).hexdigest()
+        source_hash = hashlib.sha256(safe_repo_path(image["source"]).read_bytes()).hexdigest()
         output_hash = hashlib.sha256(path.read_bytes()).hexdigest()
         if output_hash in output_hashes and source_hash != source_hashes[output_hash]:
             errors.append(f"Different source images produced identical output: {output_hashes[output_hash]} and {path.relative_to(ROOT)}")

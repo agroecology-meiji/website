@@ -1,21 +1,265 @@
 {
-  "image": {"max_pixels": 1600, "jpeg_quality": 82, "output_directory": "assets/img/gallery"},
+  "image": {
+    "max_pixels": 1600,
+    "jpeg_quality": 82,
+    "output_directory": "assets/img/gallery"
+  },
   "slideshow_count": 3,
   "items": [
     {
-      "date": "2026-05-18", "source": "assets/img/260518.jpg", "output": "260518.jpg",
-      "ja": {"date_label": "5月18日", "title": "黒川農場を訪問しました", "summary": "卒業研究の計画について打ち合わせました。", "body": "卒業研究の計画について打ち合わせるため、黒川農場を訪問しました。区画ごとの作付けや管理について、職員の方に詳しく説明して頂くことができました。", "alt": "黒川農場の訪問風景"},
-      "en": {"date_label": "May 18", "title": "Field visit to Kurokawa Farm", "summary": "We discussed plans for undergraduate research.", "body": "We visited Kurokawa Farm to discuss plans for undergraduate research and learned about crop management in each field section.", "alt": "Field visit"}
+      "date": "2026-09-14",
+      "source": "assets/img/260914_1.jpg",
+      "output": "260914_1.jpg",
+      "additional_images": [
+        {
+          "source": "assets/img/260914_2.jpg",
+          "output": "260914_2.jpg",
+          "ja_alt": "秩父でのラボ合宿の様子（2枚目）",
+          "en_alt": "Lab retreat in Chichibu, photo 2"
+        }
+      ],
+      "ja": {
+        "date_label": "9月14日",
+        "title": "ラボ合宿で秩父へ行きました",
+        "summary": "メンバーがゼミを一から企画しました。",
+        "body": "ラボ合宿で秩父へ行ってきました。ゼミの内容はメンバーで一から提案して企画してくれました！新しいアイデアが出てくるものですね。",
+        "alt": "秩父でのラボ合宿の様子（1枚目）"
+      },
+      "en": {
+        "date_label": "Sep. 14",
+        "title": "Lab retreat in Chichibu",
+        "summary": "Lab members planned the seminar from scratch.",
+        "body": "We went to Chichibu for a lab retreat. Lab members proposed and planned the seminar program from scratch, leading to many new ideas.",
+        "alt": "Lab retreat in Chichibu, photo 1"
+      }
     },
     {
-      "date": "2026-05-11", "source": "assets/img/260511.jpg", "output": "260511.jpg",
-      "ja": {"date_label": "5月11日", "title": "圃場に苗を定植しました", "summary": "3年生全員で話し合って作付けを決めました。", "body": "圃場に苗を定植しました。「何をどのように植えるか」から、3年生全員で話し合って決めました。", "alt": "圃場に苗を定植した様子"},
-      "en": {"date_label": "May 11", "title": "Planting seedlings in the field", "summary": "Students discussed and decided what and how to plant.", "body": "We planted seedlings in the field after discussing what and how to plant with all third-year students.", "alt": "Planting seedlings"}
+      "date": "2026-09-10",
+      "source": "assets/img/260910.jpg",
+      "output": "260910.jpg",
+      "ja": {
+        "date_label": "9月10日",
+        "title": "黒川農場でアリを収集しました",
+        "summary": "複数の手法を組み合わせてアリを収集しました。",
+        "body": "黒川農場でアリの収集です。アリ種によって生態が異なるため、複数の手法を組み合わせて網羅的にデータを集めます。",
+        "alt": "黒川農場でアリを収集する様子"
+      },
+      "en": {
+        "date_label": "Sep. 10",
+        "title": "Collecting ants at Kurokawa Farm",
+        "summary": "We combined multiple methods to collect ants.",
+        "body": "We collected ants at Kurokawa Farm. Because ant species differ in their ecology, we combined multiple methods to collect comprehensive data.",
+        "alt": "Collecting ants at Kurokawa Farm"
+      }
     },
     {
-      "date": "2026-04-24", "source": "assets/img/260424.jpg", "output": "260424.jpg",
-      "ja": {"date_label": "4月24日", "title": "ラボで畑を始めました", "summary": "まずは整備するところからスタートです。", "body": "生田キャンパス内の南圃場を借りて、ラボで畑を始めました。まずは整備するところからスタートです。", "alt": "生田キャンパス内の圃場整備"},
-      "en": {"date_label": "Apr. 24", "title": "Starting our campus field", "summary": "We began by preparing the field.", "body": "We started a lab field on the Ikuta Campus. The first step was to prepare the field.", "alt": "Campus field"}
+      "date": "2026-09-09",
+      "source": "assets/img/260909.jpg",
+      "output": "260909.jpg",
+      "ja": {
+        "date_label": "9月9日",
+        "title": "理化学研究所を訪問しました",
+        "summary": "機器計測のため、つくばの研究所を訪れました。",
+        "body": "機器計測のため、理化学研究所（つくば）にお邪魔しました。研究所という大学とはまた違った雰囲気を感じることができました。",
+        "alt": "理化学研究所つくば地区を訪問した様子"
+      },
+      "en": {
+        "date_label": "Sep. 9",
+        "title": "Visit to RIKEN in Tsukuba",
+        "summary": "We visited RIKEN for instrument measurements.",
+        "body": "We visited RIKEN in Tsukuba for instrument measurements and experienced the distinctive atmosphere of a research institute.",
+        "alt": "Visit to RIKEN in Tsukuba"
+      }
+    },
+    {
+      "date": "2026-09-04",
+      "source": "assets/img/260904.jpg",
+      "output": "260904.jpg",
+      "ja": {
+        "date_label": "9月4日",
+        "title": "不耕起栽培の農家さんを訪問しました",
+        "summary": "生き物の力強さと多様性に触れました。",
+        "body": "不耕起栽培の実践されている農家さんを訪ねました。生き物の力強さと多様性に触れることができました。",
+        "alt": "不耕起栽培が実践されている農地の様子"
+      },
+      "en": {
+        "date_label": "Sep. 4",
+        "title": "Visit to a no-till farm",
+        "summary": "We experienced the vitality and diversity of living organisms.",
+        "body": "We visited a farm practicing no-till cultivation and experienced the vitality and diversity of living organisms.",
+        "alt": "Farmland managed using no-till cultivation"
+      }
+    },
+    {
+      "date": "2026-08-20",
+      "source": "assets/img/260820.jpg",
+      "output": "260820.jpg",
+      "ja": {
+        "date_label": "8月20日",
+        "title": "乗鞍岳のハイマツ林で調査しました",
+        "summary": "長期調査を続けているフィールドを訪れました。",
+        "body": "乗鞍岳のハイマツ林で調査を行いました。小泉が大学院生のころから継続して調査を行なっているフィールドです。",
+        "alt": "乗鞍岳のハイマツ林で調査する様子"
+      },
+      "en": {
+        "date_label": "Aug. 20",
+        "title": "Field survey on Mount Norikura",
+        "summary": "We surveyed a long-term research site in a dwarf pine forest.",
+        "body": "We conducted a survey in a dwarf pine forest on Mount Norikura. Koizumi has continued research at this field site since graduate school.",
+        "alt": "Field survey in a dwarf pine forest on Mount Norikura"
+      }
+    },
+    {
+      "date": "2026-08-02",
+      "source": "assets/img/260802.jpg",
+      "output": "260802.jpg",
+      "ja": {
+        "date_label": "8月2日",
+        "title": "オープンキャンパスに出展しました",
+        "summary": "研究紹介と受験生の相談対応を行いました。",
+        "body": "オープンキャンパスが開催され、農学部では研究室ごとにブースを設けました。ラボ1期生がこれから取り組む研究について紹介したり、受験生の相談に乗りました。",
+        "alt": "オープンキャンパスの研究室ブースの様子"
+      },
+      "en": {
+        "date_label": "Aug. 2",
+        "title": "Open Campus exhibition",
+        "summary": "Students introduced their research and spoke with prospective students.",
+        "body": "At the Open Campus event, each laboratory in the School of Agriculture set up a booth. Our first cohort introduced their upcoming research and answered questions from prospective students.",
+        "alt": "Agroecology Lab booth at the Open Campus event"
+      }
+    },
+    {
+      "date": "2026-07-20",
+      "source": "assets/img/260720.jpg",
+      "output": "260720.jpg",
+      "ja": {
+        "date_label": "7月20日",
+        "title": "圃場の野菜を収穫しました",
+        "summary": "色とりどりの野菜が実りました。",
+        "body": "キャンパス内の圃場で育てた野菜を収穫しました。色とりどりの野菜が実っていて、これからの時期も楽しみです！",
+        "alt": "キャンパス内の圃場で収穫した野菜"
+      },
+      "en": {
+        "date_label": "July 20",
+        "title": "Harvesting vegetables from the campus field",
+        "summary": "We harvested a colorful variety of vegetables.",
+        "body": "We harvested vegetables grown in our campus field. A colorful variety of crops had developed, and we look forward to seeing what the coming season brings.",
+        "alt": "Vegetables harvested from the campus field"
+      }
+    },
+    {
+      "date": "2026-07-12",
+      "source": "assets/img/260712.jpg",
+      "output": "260712.jpg",
+      "ja": {
+        "date_label": "7月12日",
+        "title": "ICOM2026で発表しました",
+        "summary": "季節変化に関する研究成果を報告しました。",
+        "body": "菌根関連の国際会議（ICOM2026）で発表しました。\"Seasons Change\" というセッションで、季節変化（フェノロジー）の研究成果を報告しました。",
+        "alt": "International Conference on Mycorrhiza 2026で発表する様子"
+      },
+      "en": {
+        "date_label": "July 12",
+        "title": "Presentation at ICOM2026",
+        "summary": "We presented research on seasonal change and phenology.",
+        "body": "We presented our research at the International Conference on Mycorrhiza 2026. The results on seasonal change and phenology were presented in the session titled \"Seasons Change.\"",
+        "alt": "Presentation at the International Conference on Mycorrhiza 2026"
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "source": "assets/img/260702.jpg",
+      "output": "260702.jpg",
+      "ja": {
+        "date_label": "7月2日",
+        "title": "生田神社でキノコを観察しました",
+        "summary": "ゼミの前に急遽キノコ観察会を行いました。",
+        "body": "生田キャンパス内にある生田神社に多くのキノコが顔を出していました。急遽、ゼミの前にキノコ観察会を行いました！",
+        "alt": "生田神社で観察したキノコ"
+      },
+      "en": {
+        "date_label": "July 2",
+        "title": "Mushroom walk at Ikuta Shrine",
+        "summary": "We held an impromptu mushroom walk before our seminar.",
+        "body": "Many mushrooms had appeared at Ikuta Shrine on the Ikuta Campus, so we held an impromptu mushroom walk before our seminar.",
+        "alt": "Mushrooms observed at Ikuta Shrine"
+      }
+    },
+    {
+      "date": "2026-06-17",
+      "source": "assets/img/260617.jpg",
+      "output": "260617.jpg",
+      "ja": {
+        "date_label": "6月17日",
+        "title": "アリを収集するトラップを設置しました",
+        "summary": "本格的なデータ収集に向けた予備試験です。",
+        "body": "アリを収集するピットフォールトラップを仕掛けました。本格的なデータ収集に向けて、まずは予備試験です。この後、雨避けをつけて3日間待ちました。",
+        "alt": "アリを収集するために設置したピットフォールトラップ"
+      },
+      "en": {
+        "date_label": "June 17",
+        "title": "Pitfall traps for collecting ants",
+        "summary": "We began with a pilot study before full-scale data collection.",
+        "body": "We set up pitfall traps to collect ants as a pilot study ahead of full-scale data collection. We later added rain covers and left the traps in place for three days.",
+        "alt": "Pitfall trap installed to collect ants"
+      }
+    },
+    {
+      "date": "2026-05-18",
+      "source": "assets/img/260518.jpg",
+      "output": "260518.jpg",
+      "ja": {
+        "date_label": "5月18日",
+        "title": "黒川農場を訪問しました",
+        "summary": "卒業研究の計画について打ち合わせました。",
+        "body": "卒業研究の計画について打ち合わせるため、黒川農場を訪問しました。区画ごとの作付けや管理について、職員の方に詳しく説明して頂くことができました。",
+        "alt": "黒川農場の訪問風景"
+      },
+      "en": {
+        "date_label": "May 18",
+        "title": "Field visit to Kurokawa Farm",
+        "summary": "We discussed plans for undergraduate research.",
+        "body": "We visited Kurokawa Farm to discuss plans for undergraduate research and learned about crop management in each field section.",
+        "alt": "Field visit"
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "source": "assets/img/260511.jpg",
+      "output": "260511.jpg",
+      "ja": {
+        "date_label": "5月11日",
+        "title": "圃場に苗を定植しました",
+        "summary": "3年生全員で話し合って作付けを決めました。",
+        "body": "圃場に苗を定植しました。「何をどのように植えるか」から、3年生全員で話し合って決めました。",
+        "alt": "圃場に苗を定植した様子"
+      },
+      "en": {
+        "date_label": "May 11",
+        "title": "Planting seedlings in the field",
+        "summary": "Students discussed and decided what and how to plant.",
+        "body": "We planted seedlings in the field after discussing what and how to plant with all third-year students.",
+        "alt": "Planting seedlings"
+      }
+    },
+    {
+      "date": "2026-04-24",
+      "source": "assets/img/260424.jpg",
+      "output": "260424.jpg",
+      "ja": {
+        "date_label": "4月24日",
+        "title": "ラボで畑を始めました",
+        "summary": "まずは整備するところからスタートです。",
+        "body": "生田キャンパス内の南圃場を借りて、ラボで畑を始めました。まずは整備するところからスタートです。",
+        "alt": "生田キャンパス内の圃場整備"
+      },
+      "en": {
+        "date_label": "Apr. 24",
+        "title": "Starting our campus field",
+        "summary": "We began by preparing the field.",
+        "body": "We started a lab field on the Ikuta Campus. The first step was to prepare the field.",
+        "alt": "Campus field"
+      }
     }
   ]
 }

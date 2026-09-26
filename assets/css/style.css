@@ -1405,6 +1405,16 @@ main.home-main {
   line-height: 1.85;
 }
 
+.gallery-entry__images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.gallery-entry__images--multiple {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .gallery-entry__img {
   display: block;
   width: 100%;
@@ -1716,6 +1726,10 @@ main.home-main {
 
   .gallery-entry__img {
     height: auto;
+  }
+
+  .gallery-entry__images--multiple {
+    grid-template-columns: 1fr;
   }
 
   .news-card {
