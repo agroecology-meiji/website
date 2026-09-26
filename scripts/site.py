@@ -78,6 +78,11 @@ def validate_and_load():
             raise BuildError("data/news.json items must be newest first")
         previous = date
         require_text(item.get("category"), f"{label}.category")
+        destination = item.get("destination", "news")
+        if destination not in ("news", "publications"):
+            raise BuildError(
+                f"{label}.destination must be 'news' or 'publications'"
+            )
         for locale in LOCALES:
             copy = item.get(locale)
             if not isinstance(copy, dict):
@@ -187,9 +192,11 @@ def news_page_block(items, locale):
 
 
 def latest_news_block(items, locale):
-    href = f"{PUBLIC_BASE}{'/en' if locale == 'en' else ''}/news/"
+    language_prefix = "/en" if locale == "en" else ""
     lines = []
     for item in items[:3]:
+        destination = item.get("destination", "news")
+        href = f"{PUBLIC_BASE}{language_prefix}/{destination}/"
         lines += [
             f'          <a class="latest-item" href="{href}">',
             f'            <time class="latest-date" datetime="{e(item["date"])}">{e(display_date(item["date"]))}</time>',
