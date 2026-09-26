@@ -5,6 +5,11 @@
     "output_directory": "assets/img/gallery"
   },
   "slideshow_count": 10,
+  "slideshow_exclude": [
+    "260702.jpg",
+    "260712.jpg",
+    "260914_2.jpg"
+  ],
   "items": [
     {
       "date": "2026-09-14",

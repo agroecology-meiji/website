@@ -175,6 +175,20 @@ def validate_and_load():
                 raise BuildError(f"{label}.{locale} must be an object")
             for field in ("date_label", "title", "summary", "body", "alt"):
                 require_text(copy.get(field), f"{label}.{locale}.{field}")
+    slideshow_exclude = gallery.get("slideshow_exclude", [])
+    if not isinstance(slideshow_exclude, list):
+        raise BuildError("data/gallery.json: slideshow_exclude must be an array")
+    excluded_outputs = set()
+    for exclude_index, output in enumerate(slideshow_exclude):
+        output = require_text(output, f"data/gallery.json slideshow_exclude[{exclude_index}]")
+        if output in excluded_outputs:
+            raise BuildError(f"Duplicate slideshow exclusion: {output}")
+        if output not in outputs:
+            raise BuildError(f"Unknown slideshow exclusion: {output}")
+        excluded_outputs.add(output)
+    slideshow_candidates = sum(1 for item in items if item["output"] not in excluded_outputs)
+    if slideshow_count > slideshow_candidates:
+        raise BuildError("data/gallery.json: slideshow_count exceeds available non-excluded items")
     return news, publications, gallery
 
 
@@ -258,7 +272,11 @@ def image_url(gallery, image):
 
 def gallery_slideshow_block(gallery, locale):
     labels = {"ja": ("前の写真", "次の写真", "写真の選択"), "en": ("Previous photo", "Next photo", "Choose a photo")}[locale]
-    items = gallery["items"][:gallery["slideshow_count"]]
+    excluded_outputs = set(gallery.get("slideshow_exclude", []))
+    items = [
+        item for item in gallery["items"]
+        if item["output"] not in excluded_outputs
+    ][:gallery["slideshow_count"]]
     lines = []
     for index, item in enumerate(items):
         copy = item[locale]
